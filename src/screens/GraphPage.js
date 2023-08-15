@@ -1,11 +1,11 @@
 import NavBar from "../components/NavBar/NavBar";
-import SearchBar from "../components/SearchBar/SearchBar";
+import ItemBar from "../components/ItemBar/ItemBar";
 
 function GraphPage() {
 	return (
 		<>
 			<NavBar />
-			<SearchBar />
+			<ItemBar />
 		</>
 	);
 }
