@@ -3,7 +3,9 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
-const Graph = ({ data, width = 2004, height = 720 }) => {
+import styles from "./Graph.module.css";
+
+function Graph({ data, width = 2004, height = 720 }) {
 	const svgRef = useRef();
 
 	useEffect(() => {
@@ -64,7 +66,7 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 			.on("mouseenter", function (event, d) {
 				link.attr("display", "none")
 					.attr("stroke-width", 3)
-					.attr("stroke", "black")
+					.attr("stroke", "#1eb5e4")
 					.filter((l) => l.source === d || l.target === d)
 					.attr("display", "block");
 			})
@@ -137,7 +139,14 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 		};
 	}, [data, width, height]);
 
-	return <svg ref={svgRef} width={width} height={height}></svg>;
-};
+	return (
+		<svg
+			ref={svgRef}
+			width={width}
+			height={height}
+			className={styles.graph}
+		></svg>
+	);
+}
 
 export default Graph;
