@@ -6,6 +6,11 @@ body {
 	margin: 0;
 	line-height: normal;
 }
+
+* {
+	box-sizing: border-box;
+}
+
 :root {
 	/* fonts */
 	--desktop-h3: Montserrat;
