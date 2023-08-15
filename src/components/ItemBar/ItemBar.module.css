@@ -1,0 +1,30 @@
+.itembar {
+	padding: 15px 220px 15px 190px;
+	background-color: var(--color-background);
+}
+
+.itembarIn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.itemName {
+	color: #1eb4e4;
+	font-family: "Poppins-SemiBold", Helvetica;
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-right: 42px;
+}
+
+.itemDescription {
+	color: #1eb4e4;
+	font-family: "Poppins-SemiBold", Helvetica;
+	font-size: 25px;
+	font-weight: 600;
+	height: 24px;
+	letter-spacing: 0;
+	line-height: normal;
+	white-space: nowrap;
+}
