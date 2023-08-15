@@ -1,11 +1,12 @@
 import NavBar from "../components/NavBar/NavBar";
 
-function MainPage() {
+function GraphPage() {
 	return (
 		<>
 			<NavBar />
+            
 		</>
 	);
 }
 
-export default MainPage;
+export default GraphPage;

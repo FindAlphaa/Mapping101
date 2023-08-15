@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+body {
+	margin: 0;
+	line-height: normal;
+}
+:root {
+	/* fonts */
+	--desktop-h3: Montserrat;
+	--font-poppins: Poppins;
+	--font-noto-sans-kr: "Noto Sans KR";
+	--desktop-main-regular: Raleway;
+
+	/* font sizes */
+	--desktop-menu-size: 14px;
+	--font-size-16xl: 35px;
+	--desktop-main-regular-size: 16px;
+	--desktop-h3-size: 24px;
+
+	/* Colors */
+	--color-black: #000;
+	--color-deepskyblue: #1eb5e4;
+	--color-gray-100: #2c2c2c;
+	--color-gray-200: #232323;
+	--color-white: #fff;
+	--color-lightslategray: #9a95a3;
+	--general-blue: #381ddb;
+
+	/* Paddings */
+	--padding-5xs: 8px;
+	--padding-base: 16px;
+
+	/* Effects */
+	--small: 0px 10px 40px rgba(34, 34, 34, 0.15);
+}
