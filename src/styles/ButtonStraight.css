@@ -1,0 +1,40 @@
+.button-straight {
+	align-items: center;
+	border: 1px solid;
+	border-color: var(--general-blue);
+	display: inline-flex;
+	gap: 10px;
+	padding: 8px 16px;
+	position: relative;
+}
+
+.button-straight .small-button {
+	color: var(--general-blue);
+	font-family: var(--desktop-menu-font-family);
+	font-size: var(--desktop-menu-font-size);
+	font-style: var(--desktop-menu-font-style);
+	font-weight: var(--desktop-menu-font-weight);
+	letter-spacing: var(--desktop-menu-letter-spacing);
+	line-height: var(--desktop-menu-line-height);
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.buttons {
+	align-items: flex-start;
+	border: 1px none;
+	display: inline-flex;
+	gap: 40px;
+	position: relative;
+}
+
+.buttons .frame {
+	border-color: #1eb4e4 !important;
+	flex: 0 0 auto !important;
+}
+
+.buttons .button-straight-outline-small {
+	color: #1eb4e4 !important;
+}

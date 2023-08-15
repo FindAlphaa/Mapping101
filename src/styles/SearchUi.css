@@ -1,0 +1,35 @@
+.category-search-ui {
+	background-color: #3d3d3d;
+	border: 1px solid;
+	border-color: #000000;
+}
+
+.category-search-ui .text-wrapper {
+	color: #e8e9ff;
+	font-family: "Noto Sans KR", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	left: 24px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	top: 16px;
+}
+
+.category-search-ui .search-button {
+	background-color: #1eb4e4;
+	border-radius: 19.5px;
+	height: 39px;
+	left: 299px;
+	position: absolute;
+	top: 9px;
+	width: 39px;
+}
+
+.category-search-ui .ellipse {
+	height: 21px;
+	left: 9px;
+	position: absolute;
+	top: 9px;
+	width: 21px;
+}

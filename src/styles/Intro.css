@@ -1,0 +1,82 @@
+.frame {
+	border: 1px none;
+}
+
+.frame .overlap-group {
+	height: 420px;
+	position: relative;
+	width: 1440px;
+}
+
+.frame .image-section {
+	background-color: #f7f6f9;
+	height: 420px;
+	left: 0;
+	opacity: 0.1;
+	position: absolute;
+	top: 0;
+	width: 1440px;
+}
+
+.frame .image {
+	height: 420px;
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	width: 1440px;
+}
+
+.frame .category-search-ui {
+	background-color: #3d3d3d;
+	border: 1px solid;
+	border-color: #000000;
+	border-radius: 24px;
+	height: 55px;
+	left: 191px;
+	position: absolute;
+	top: 295px;
+	width: 346px;
+}
+
+.frame .text-wrapper {
+	color: #e8e9ff;
+	font-family: "Noto Sans KR", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	left: 24px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	top: 16px;
+}
+
+.frame .search-button {
+	background-color: #1eb4e4;
+	border-radius: 19.5px;
+	height: 39px;
+	left: 299px;
+	position: absolute;
+	top: 9px;
+	width: 39px;
+}
+
+.frame .ellipse {
+	height: 21px;
+	left: 9px;
+	position: absolute;
+	top: 9px;
+	width: 21px;
+}
+
+.frame .mapping {
+	color: #1eb4e4;
+	font-family: "Noto Sans KR", Helvetica;
+	font-size: 55px;
+	font-weight: 700;
+	left: 180px;
+	letter-spacing: 0;
+	line-height: 72px;
+	position: absolute;
+	top: 79px;
+}

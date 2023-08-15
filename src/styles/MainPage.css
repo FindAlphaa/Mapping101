@@ -1,0 +1,15 @@
+.category {
+	background-color: #2c2c2c;
+	border: 1px none;
+	padding: 16px 1054px 16px 218px;
+}
+
+.category .logo {
+	color: #1eb4e4;
+	font-family: "Poppins", Helvetica;
+	font-size: 35px;
+	font-weight: 600;
+
+	letter-spacing: 0;
+	line-height: normal;
+}
