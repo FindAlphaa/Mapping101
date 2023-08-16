@@ -1,3 +1,4 @@
 .graph {
-	background-color: var(--color-gray-200);
+  background-color: var(--color-gray-200);
+  padding: 10px 10px;
 }
