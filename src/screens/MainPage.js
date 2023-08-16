@@ -7,17 +7,17 @@ import Section3 from "../components/Section3/Section3";
 import Footer from "../components/Footer/Footer";
 
 function MainPage() {
-  return (
-    <>
-      <NavBar />
-      <IntroSection />
-      <Category />
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<NavBar />
+			<IntroSection />
+			<Category />
+			<Section1 />
+			<Section2 />
+			<Section3 />
+			<Footer />
+		</>
+	);
 }
 
 export default MainPage;

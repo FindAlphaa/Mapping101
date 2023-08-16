@@ -5,33 +5,33 @@ import * as d3 from "d3";
 
 import styles from "./Graph.module.css";
 
-const Graph = ({ data, width = 2004, height = 720 }) => {
-	const svgRef = useRef();
+function Graph({ data, width = 2004, height = 720 }) {
+	const ref = useRef(null);
 
 	useEffect(() => {
-		const svg = d3
-			.select(svgRef.current)
-			.attr("viewBox", [-width / 2, -height / 2, width, height])
-			.attr("style", "max-width: 100%; height: auto;");
+		const zoom = d3
+			.zoom()
+			.scaleExtent([0.1, 10]) // Set the zoom scale range
+			.on("zoom", (event) => {
+				const { transform } = event;
+				// Apply the zoom transform to the 'g' element containing links and nodes
+				d3.select(".nodes").attr("transform", transform);
+				d3.select(".links").attr("transform", transform);
+			});
 
 		const colorScale = d3
 			.scaleLinear()
 			.domain([-10, 0, 10])
 			.range(["red", "white", "blue"]);
 
-		const zoom = d3
-			.zoom()
-			.scaleExtent([0.1, 10])
-			.on("zoom", (event) => {
-				const { transform } = event;
-				d3.select(".nodes").attr("transform", transform);
-				d3.select(".links").attr("transform", transform);
-			});
+		data.nodes.forEach((node) => {
+			node._children = data.links
+				.filter((link) => link.source === node.id)
+				.map((link) => data.nodes.find((n) => n.id === link.target)); // Find the corresponding node object
+		});
 
-		svg.call(zoom);
-
-		const links = data.links.map((d) => Object.assign({}, d));
-		const nodes = data.nodes.map((d) => Object.assign({}, d));
+		const links = data.links.map((d) => ({ ...d }));
+		const nodes = data.nodes.map((d) => ({ ...d }));
 
 		const simulation = d3
 			.forceSimulation(nodes)
@@ -42,9 +42,17 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 					.id((d) => d.id)
 					.distance(100)
 			)
-			.force("charge", d3.forceManyBody().strength(-600))
+			.force("charge", d3.forceManyBody().strength(-1000))
 			.force("x", d3.forceX())
 			.force("y", d3.forceY());
+
+		const svg = d3
+			.select(ref.current)
+			.attr("width", width)
+			.attr("height", height)
+			.attr("viewBox", [-width / 2, -height / 2, width, height])
+			.attr("style", "max-width:100%; height:auto;")
+			.call(zoom);
 
 		const link = svg
 			.append("g")
@@ -82,12 +90,17 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 			.attr("fill", (d) => colorScale(d.color))
 			.attr("cursor", "pointer");
 
-		node.append("text")
+		const text = node
+			.append("text")
 			.attr("text-anchor", "middle")
+			// .attr("dx", 0)
 			.attr("dy", "0")
 			.text((d) => d.id)
+			.lower()
 			.attr("font-size", 7)
-			.attr("fill", "black");
+			.attr("fill", "black")
+			.attr("stroke", "none")
+			.raise();
 
 		circle.append("title").text((d) => d.id);
 
@@ -100,6 +113,7 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 				.on("end", dragended)
 		);
 
+		// Set the position attributes of links and nodes each time the simulation ticks.
 		simulation.on("tick", () => {
 			node.attr("transform", (d) => `translate(${d.x},${d.y})`);
 
@@ -133,20 +147,14 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 			event.subject.fy = null;
 		}
 
-		// Clean up on unmount
-		return () => {
-			simulation.stop();
-		};
-	}, [data, width, height]);
+		return d3
+			.drag()
+			.on("start", dragstarted)
+			.on("drag", dragged)
+			.on("end", dragended);
+	}, []);
 
-	return (
-		<svg
-			ref={svgRef}
-			width={width}
-			height={height}
-			className={styles.graph}
-		></svg>
-	);
-};
+	return <svg ref={ref}></svg>;
+}
 
 export default Graph;
