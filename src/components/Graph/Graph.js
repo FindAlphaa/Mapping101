@@ -19,11 +19,6 @@ function Graph({ data, width = 2004, height = 720 }) {
 				d3.select(".links").attr("transform", transform);
 			});
 
-		const colorScale = d3
-			.scaleLinear()
-			.domain([-10, 0, 10])
-			.range(["red", "white", "blue"]);
-
 		data.nodes.forEach((node) => {
 			node._children = data.links
 				.filter((link) => link.source === node.id)
@@ -87,7 +82,7 @@ function Graph({ data, width = 2004, height = 720 }) {
 		const circle = node
 			.append("circle")
 			.attr("r", (d) => d.radius)
-			.attr("fill", (d) => colorScale(d.color))
+			.attr("fill", (d) => d.color)
 			.attr("cursor", "pointer");
 
 		const text = node
