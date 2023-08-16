@@ -5,7 +5,7 @@ import * as d3 from "d3";
 
 import styles from "./Graph.module.css";
 
-function Graph({ data, width = 2004, height = 720 }) {
+function Graph({ data, width = 2004, height = 1000 }) {
 	const ref = useRef(null);
 
 	useEffect(() => {
@@ -161,7 +161,11 @@ function Graph({ data, width = 2004, height = 720 }) {
 		};
 	}, []);
 
-	return <svg ref={ref} className={styles.graph}></svg>;
+	return (
+		<div className={styles.graph}>
+			<svg ref={ref} className={styles.graph}></svg>
+		</div>
+	);
 }
 
 export default Graph;
