@@ -1,0 +1,71 @@
+{
+	"nodes": [
+		{ "id": "에너지", "color": "#3737FF", "radius": 50 },
+		{ "id": "에너지 장비 및 서비스", "color": "#3737FF", "radius": 40 },
+		{ "id": "에너지 장비", "color": "#3737FF", "radius": 30 },
+		{ "id": "석유와 가스", "color": "#3737FF", "radius": 40 },
+		{ "id": "종합 석유 및 가스", "color": "#3737FF", "radius": 30 },
+		{ "id": "석유", "color": "#3737FF", "radius": 20 },
+		{ "id": "가스", "color": "#3737FF", "radius": 20 },
+		{ "id": "석유와 가스 탐사 및 생산", "color": "#3737FF", "radius": 30 },
+		{ "id": "탐사", "color": "#3737FF", "radius": 20 },
+		{ "id": "생산", "color": "#3737FF", "radius": 20 },
+		{
+			"id": "석유와 가스 정제 및 마케팅",
+			"color": "#3737FF",
+			"radius": 30
+		},
+		{ "id": "정제", "color": "#3737FF", "radius": 20 },
+		{ "id": "마케팅", "color": "#3737FF", "radius": 20 },
+		{ "id": "석유와 가스 저장 및 수송", "color": "#3737FF", "radius": 30 },
+		{ "id": "저장", "color": "#3737FF", "radius": 20 },
+		{ "id": "수송", "color": "#3737FF", "radius": 20 },
+		{ "id": "석탄 및 소모 연료", "color": "#3737FF", "radius": 30 },
+		{ "id": "석탄", "color": "#3737FF", "radius": 20 },
+		{ "id": "소모연료", "color": "#3737FF", "radius": 20 }
+	],
+	"links": [
+		{ "source": "에너지", "target": "에너지 장비 및 서비스", "value": 1 },
+		{
+			"source": "에너지 장비 및 서비스",
+			"target": "에너지 장비",
+			"value": 1
+		},
+		{ "source": "에너지", "target": "석유와 가스", "value": 1 },
+		{ "source": "석유와 가스", "target": "종합 석유 및 가스", "value": 1 },
+		{ "source": "종합 석유 및 가스", "target": "석유", "value": 1 },
+		{ "source": "종합 석유 및 가스", "target": "가스", "value": 1 },
+		{
+			"source": "석유와 가스",
+			"target": "석유와 가스 탐사 및 생산",
+			"value": 1
+		},
+		{ "source": "석유와 가스 탐사 및 생산", "target": "탐사", "value": 1 },
+		{ "source": "석유와 가스 탐사 및 생산", "target": "생산", "value": 1 },
+		{
+			"source": "석유와 가스",
+			"target": "석유와 가스 정제 및 마케팅",
+			"value": 1
+		},
+		{
+			"source": "석유와 가스 정제 및 마케팅",
+			"target": "정제",
+			"value": 1
+		},
+		{
+			"source": "석유와 가스 정제 및 마케팅",
+			"target": "마케팅",
+			"value": 1
+		},
+		{
+			"source": "석유와 가스",
+			"target": "석유와 가스 저장 및 수송",
+			"value": 1
+		},
+		{ "source": "석유와 가스 저장 및 수송", "target": "저장", "value": 1 },
+		{ "source": "석유와 가스 저장 및 수송", "target": "수송", "value": 1 },
+		{ "source": "석유와 가스", "target": "석탄 및 소모 연료", "value": 1 },
+		{ "source": "석탄 및 소모 연료", "target": "석탄", "value": 1 },
+		{ "source": "석탄 및 소모 연료", "target": "소모연료", "value": 1 }
+	]
+}

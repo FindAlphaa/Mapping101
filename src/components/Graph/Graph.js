@@ -92,7 +92,7 @@ function Graph({ data, width = 2004, height = 720 }) {
 			.attr("dy", "0")
 			.text((d) => d.id)
 			.lower()
-			.attr("font-size", 7)
+			.attr("font-size", 15)
 			.attr("fill", "black")
 			.attr("stroke", "none")
 			.raise();
@@ -142,14 +142,26 @@ function Graph({ data, width = 2004, height = 720 }) {
 			event.subject.fy = null;
 		}
 
-		return d3
-			.drag()
-			.on("start", dragstarted)
-			.on("drag", dragged)
-			.on("end", dragended);
+		node.call(
+			d3
+				.drag()
+				.on("start", dragstarted)
+				.on("drag", dragged)
+				.on("end", dragended)
+		);
+
+		return () => {
+			// Cleanup D3 event listeners here
+			svg.on(".zoom", null); // Remove the zoom event listener
+			node.on(".drag", null); // Remove the drag event listener
+			simulation.on("tick", null);
+
+			// Remove any other D3 generated content or event listeners
+			d3.select(ref.current).selectAll("*").remove();
+		};
 	}, []);
 
-	return <svg ref={ref}></svg>;
+	return <svg ref={ref} className={styles.graph}></svg>;
 }
 
 export default Graph;
