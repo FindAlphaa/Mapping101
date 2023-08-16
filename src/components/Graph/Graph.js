@@ -3,6 +3,8 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
+import styles from "./Graph.module.css";
+
 const Graph = ({ data, width = 2004, height = 720 }) => {
 	const svgRef = useRef();
 
@@ -137,7 +139,14 @@ const Graph = ({ data, width = 2004, height = 720 }) => {
 		};
 	}, [data, width, height]);
 
-	return <svg ref={svgRef} width={width} height={height}></svg>;
+	return (
+		<svg
+			ref={svgRef}
+			width={width}
+			height={height}
+			className={styles.graph}
+		></svg>
+	);
 };
 
 export default Graph;
