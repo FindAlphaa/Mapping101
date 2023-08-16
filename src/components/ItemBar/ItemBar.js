@@ -7,9 +7,9 @@ function ItemBar({ itemName, itemDescription }) {
 		<div className={styles.itembar}>
 			<div className={styles.itembarIn}>
 				<div className={styles.item}>
-					<span className={styles.itemName}>IT</span>
+					<span className={styles.itemName}>{itemName}</span>
 					<span className={styles.itemDescription}>
-						Internet Technology
+						{itemDescription}
 					</span>
 				</div>
 				<SearchBar />
