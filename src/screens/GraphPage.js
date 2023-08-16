@@ -13,7 +13,7 @@ function GraphPage({ itemName, itemDescription }) {
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(true); // Initializing the loading state
 	const fetchData = async () => {
-		const response = await axios.get("/it.json");
+		const response = await axios.get(`/data/${id}.json`);
 		setData(response.data);
 		setLoading(false); // 데이터 로딩 완료
 	};
