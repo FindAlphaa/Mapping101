@@ -62,7 +62,6 @@ function GraphPage() {
 
 	return (
 		<>
-			<NavBar />
 			<ItemBar itemName={itemName} itemDescription={itemDescription} />
 			<InfoBar />
 
