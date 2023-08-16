@@ -1,0 +1,148 @@
+.back,
+.back1 {
+  position: absolute;
+  top: calc(50% - 165.5px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 330px;
+}
+.back1 {
+  background-color: #cfc4ff;
+}
+.back {
+  box-shadow: var(--small);
+}
+.industrialGoods1 {
+  position: absolute;
+  top: calc(50% + 15.5px);
+  left: calc(50% - 110px);
+  line-height: 24px;
+  display: inline-block;
+  width: 220px;
+  mix-blend-mode: normal;
+}
+.div,
+.text {
+  position: absolute;
+  color: #ffffff;
+}
+.div {
+  top: calc(50% - 39.5px);
+  left: calc(50% - 110px);
+  font-size: var(--desktop-h3-size);
+  line-height: 38px;
+  font-weight: 800;
+  font-family: var(--desktop-h3);
+}
+.text {
+  top: calc(50% - 25.5px);
+  left: calc(50% - 120px);
+  width: 220px;
+  height: 79px;
+}
+.vectorIcon {
+  position: absolute;
+  height: 21.15%;
+  width: 23.33%;
+  top: 6.65%;
+  right: 68.33%;
+  bottom: 72.21%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.back3,
+.industrialGoods {
+  position: absolute;
+  top: calc(50% - 156px);
+  left: calc(50% + 200px);
+  width: 300px;
+  height: 330px;
+}
+.back3 {
+  top: calc(50% - 165.5px);
+  left: calc(50% - 150px);
+  background-color: #ffa3a3;
+}
+.vectorIcon1 {
+  position: absolute;
+  height: 21.15%;
+  width: 16.67%;
+  top: 5.14%;
+  right: 75%;
+  bottom: 73.72%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.back5,
+.economy {
+  position: absolute;
+  top: calc(50% - 156px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 331px;
+}
+.back5 {
+  top: calc(50% - 165.5px);
+  background-color: #00c898;
+}
+.consumerGoodsRelated {
+  position: absolute;
+  top: calc(50% + 3.5px);
+  left: calc(50% - 110px);
+  line-height: 24px;
+  display: inline-block;
+  width: 220px;
+  mix-blend-mode: normal;
+}
+.div2,
+.text2 {
+  position: absolute;
+}
+.div2 {
+  top: calc(50% - 51.5px);
+  left: calc(50% - 110px);
+  font-size: var(--desktop-h3-size);
+  line-height: 38px;
+  font-weight: 800;
+  font-family: var(--desktop-h3);
+}
+.text2 {
+  top: calc(50% - 25.5px);
+  left: calc(50% - 120px);
+  width: 220px;
+  height: 103px;
+}
+.vectorIcon2 {
+  position: absolute;
+  height: 18.13%;
+  width: 22.33%;
+  top: 6.65%;
+  right: 70.33%;
+  bottom: 75.23%;
+  left: 7.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.consumerEconomy {
+  position: absolute;
+  top: calc(50% - 156px);
+  left: calc(50% - 500px);
+  width: 300px;
+  height: 330px;
+}
+.section1 {
+  position: relative;
+  background-color: #232323;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--desktop-main-regular-size);
+  color: var(--color-white);
+  font-family: var(--desktop-main-regular);
+}

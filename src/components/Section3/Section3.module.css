@@ -1,0 +1,126 @@
+.back,
+.back1 {
+  top: calc(50% - 165px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 330px;
+}
+.back1 {
+  position: absolute;
+  background-color: #c45b58;
+}
+.back {
+  box-shadow: var(--small);
+}
+.back,
+.div,
+.text {
+  position: absolute;
+  color: #ffffff;
+}
+.div {
+  top: calc(50% - 51.34px);
+  left: calc(50% - 110px);
+  font-size: var(--desktop-h3-size);
+  line-height: 38px;
+  font-weight: 800;
+  font-family: var(--desktop-h3);
+  display: inline-block;
+  width: 174px;
+  height: 37.89px;
+}
+.text {
+  top: calc(50% - 25.42px);
+  left: calc(50% - 120px);
+  width: 220px;
+  height: 102.69px;
+}
+.vectorIcon {
+  position: absolute;
+  height: 21.21%;
+  width: 19.33%;
+  top: 6.67%;
+  right: 70.67%;
+  bottom: 72.12%;
+  left: 10%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.back3,
+.utility {
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% + 200px);
+  width: 300px;
+  height: 330px;
+}
+.back3 {
+  top: calc(50% - 165px);
+  left: calc(50% - 150px);
+  background-color: #7872c3;
+}
+.fire2Icon {
+  position: absolute;
+  height: 21.21%;
+  width: 18.33%;
+  top: 6.67%;
+  right: 71.67%;
+  bottom: 72.12%;
+  left: 10%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.back5,
+.energy {
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 330px;
+}
+.back5 {
+  top: calc(50% - 165px);
+  background-color: #ffbe5d;
+}
+.essentialConsumerGoods {
+  position: absolute;
+  top: calc(50% + 3.49px);
+  left: calc(50% - 110px);
+  line-height: 24px;
+  display: inline-block;
+  width: 220px;
+  height: 47.85px;
+  mix-blend-mode: normal;
+}
+.vectorIcon1 {
+  position: absolute;
+  height: 21.21%;
+  width: 23.33%;
+  top: 6.67%;
+  right: 70%;
+  bottom: 72.12%;
+  left: 6.67%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.consumerGoods {
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% - 500px);
+  width: 300px;
+  height: 330px;
+}
+.section3 {
+  position: relative;
+  background-color: #232323;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--desktop-main-regular-size);
+  color: var(--color-white);
+  font-family: var(--desktop-main-regular);
+}
