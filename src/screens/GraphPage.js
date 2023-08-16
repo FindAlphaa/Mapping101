@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import NavBar from "../components/NavBar/NavBar";
 import ItemBar from "../components/ItemBar/ItemBar";
 import InfoBar from "../components/InfoBar/InfoBar";
 import Graph from "../components/Graph/Graph";
@@ -59,7 +58,7 @@ function GraphPage() {
 	};
 	useEffect(() => {
 		fetchData();
-	}, []);
+	});
 
 	return (
 		<>
