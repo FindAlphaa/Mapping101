@@ -7,14 +7,14 @@ import MainPage from "./screens/MainPage";
 import GraphPage from "./screens/GraphPage";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<MainPage />} />
-				<Route path="/graph/:id" element={<GraphPage />} />
-			</Routes>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/graph/:id" element={<GraphPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
