@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-import styles from "./Graph.module.css";
 import Node from "./Node";
 import Link from "./Link";
+
+import styles from "./Graph.module.css";
 
 function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	const [nodes, setNodes] = useState([...data.nodes]);
