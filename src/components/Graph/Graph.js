@@ -76,7 +76,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 					.distance(200)
 			)
 			.force("charge", d3.forceManyBody().strength(-3000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
-			.force("collide", d3.forceCollide().radius(100)) // 노드 간의 충돌 방지
+			.force("collide", d3.forceCollide().radius(150)) // 노드 간의 충돌 방지
 			.force("center", d3.forceCenter()) // 노드를 화면의 중앙에 위치시킴
 			.force("x", d3.forceX()) // 노드의 x 좌표를 설정
 			.force("y", d3.forceY()); // 노드의 y 좌표를 설정
@@ -88,7 +88,10 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 
 		const zoom = d3
 			.zoom()
-			.scaleExtent([0.1, 10]) // 줌의 범위 설정 (예: 0.5x ~ 5x)
+			.scaleExtent([
+				0.1, // 최소 줌 비율
+				5, // 최대 줌 비율
+			]) // 줌의 범위 설정 (예: 0.5x ~ 5x)
 			.on("zoom", (event) => {
 				d3.select(svgRef.current)
 					.select("g")
@@ -96,6 +99,12 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 			});
 
 		d3.select(svgRef.current).call(zoom).on("dblclick.zoom", null); // 더블클릭 시 줌 동작 비활성화
+
+		// 초기 줌 레벨 설정
+		d3.select(svgRef.current).call(
+			zoom.transform,
+			d3.zoomIdentity.scale(0.5)
+		);
 
 		return () => simulationRef.current.stop();
 	}, []); // 의존성 배열에 data.links, data.nodes, links 추가
