@@ -7,16 +7,61 @@ import Link from "./Link";
 function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	const [nodes, setNodes] = useState([...data.nodes]);
 	const [links, setLinks] = useState([...data.links]);
+
+	const [hoveredNode, setHoveredNode] = useState(null); // 마우스 오버한 노드의 id를 저장
+
+	const handleNodeClick = (node) => {
+		// handleNodeClick 클릭한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)
+		// Add logic here when each node is clicked
+		console.log("Node clicked:", node);
+		onNodeClick(node.id); /* 콜백 함수 */
+	};
+
+	const handleNodeHover = (node) => {
+		// 1. Reset opacity of all nodes and links
+		nodes.forEach((n) => (n.opacity = 1));
+		links.forEach((link) => (link.opacity = 1));
+
+		// 2. Set opacity for links not connected to the hovered node
+		const unconnectedLinks = links.filter(
+			(link) =>
+				!(link.source.id === node.id || link.target.id === node.id)
+		);
+		unconnectedLinks.forEach((link) => (link.opacity = 0.1));
+
+		// 3. Set opacity for nodes not connected to the hovered node
+		const connectedNodeIds = links
+			.filter(
+				(link) =>
+					link.source.id === node.id || link.target.id === node.id
+			)
+			.flatMap((link) => [link.source.id, link.target.id]);
+
+		nodes.forEach((n) => {
+			if (!connectedNodeIds.includes(n.id) && n.id !== node.id) {
+				n.opacity = 0.1;
+			}
+		});
+
+		setHoveredNode(node.id);
+	};
+
+	const handleNodeHoverOut = () => {
+		links.forEach((link) => {
+			link.opacity = 1;
+		});
+
+		nodes.forEach((node) => {
+			node.opacity = 1;
+		});
+
+		setHoveredNode(null);
+	};
+
 	const simulationRef = useRef(null);
 	const svgRef = useRef(null); // SVG 요소에 대한 참조 추가
 
 	useEffect(() => {
-		data.nodes.forEach((node) => {
-			node._children = data.links
-				.filter((link) => link.source === node.id)
-				.map((link) => data.nodes.find((n) => n.id === link.target));
-		});
-
 		if (simulationRef.current) {
 			simulationRef.current.nodes(nodes);
 		}
@@ -54,13 +99,6 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 		return () => simulationRef.current.stop();
 	}, []); // 의존성 배열에 data.links, data.nodes, links 추가
 
-	const handleNodeClick = (node) => {
-		// handleNodeClick 클릭한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)
-		// Add logic here when each node is clicked
-		console.log("Node clicked:", node);
-		onNodeClick(node.id); /* 콜백 함수 */
-	};
-
 	return (
 		<div className={styles.graph}>
 			<svg
@@ -84,6 +122,8 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 								node={node}
 								onClick={handleNodeClick}
 								simulation={simulationRef}
+								onHover={handleNodeHover}
+								onHoverOut={handleNodeHoverOut}
 							/>
 						))}
 					</g>
