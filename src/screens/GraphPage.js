@@ -8,6 +8,8 @@ import Graph from "../components/Graph/Graph";
 import KeywordSection from "../components/KeyWordName/KeyWordName";
 import ValueChain from "../components/ValueChain/ValueChain";
 
+import styles from "../components/Graph/Graph.module.css";
+
 function GraphPage() {
 	const { id } = useParams(); // URL에서 id를 받아옴
 	console.log("URL ID:", id);
@@ -63,6 +65,11 @@ function GraphPage() {
 		};
 
 		fetchData();
+		window.scroll({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
 	}, [id]); // id가 변경될 때마다 fetchData 함수 호출 (data json 파일 받기)
 
 	// Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
@@ -80,7 +87,7 @@ function GraphPage() {
 			<InfoBar />
 			{/* 데이터 로딩 중일 때 로딩 메시지 표시, 그렇지 않으면 Graph 컴포넌트 렌더링 */}
 			{loading ? (
-				<div>로딩중..</div>
+				<div className={styles.graph}>로딩중..</div>
 			) : (
 				<Graph
 					data={data}
