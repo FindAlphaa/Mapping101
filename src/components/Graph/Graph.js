@@ -30,9 +30,10 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 					.id((d) => d.id)
 					.distance(100)
 			)
-			.force("charge", d3.forceManyBody().strength(-1000))
-			.force("x", d3.forceX())
-			.force("y", d3.forceY());
+			.force("charge", d3.forceManyBody().strength(-2000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
+			.force("collide", d3.forceCollide().radius(50)) // 노드 간의 충돌 방지
+			.force("x", d3.forceX()) // 노드의 x 좌표를 설정
+			.force("y", d3.forceY()); // 노드의 y 좌표를 설정
 
 		simulationRef.current.on("tick", () => {
 			setNodes([...nodes]);
@@ -51,7 +52,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 		d3.select(svgRef.current).call(zoom).on("dblclick.zoom", null); // 더블클릭 시 줌 동작 비활성화
 
 		return () => simulationRef.current.stop();
-	}, [data.links, data.nodes, nodes, links]); // 의존성 배열에 data.links, data.nodes, links 추가
+	}, []); // 의존성 배열에 data.links, data.nodes, links 추가
 
 	const handleNodeClick = (node) => {
 		// handleNodeClick 클릭한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)

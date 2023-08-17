@@ -35,7 +35,7 @@ function Node({ node, onClick, simulation }) {
 			d.fx = null;
 			d.fy = null;
 		}
-	}, [node, simulation]);
+	}, []);
 
 	return (
 		<g
@@ -47,7 +47,7 @@ function Node({ node, onClick, simulation }) {
 			<text
 				className={styles.font}
 				textAnchor="middle"
-				dy={node.radius + 15}
+				dy={node.radius + 20}
 				fontSize={15}
 				fill="white"
 				fontWeight={500}
