@@ -1,6 +1,6 @@
 {
 	"nodes": [
-		{ "id": "IT", "color": "#3737FF", "radius": 50 },
+		{ "id": "IT", "color": "#3737FF", "radius": 100 },
 		{ "id": "반도체", "color": "#FFFFFF", "radius": 40 },
 		{ "id": "반도체 장비", "color": "#FF8E8E", "radius": 30 },
 		{ "id": "설비", "color": "#FF8E8E", "radius": 20 },
