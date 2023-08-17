@@ -3,7 +3,7 @@ import * as d3 from "d3";
 
 import styles from "./Graph.module.css";
 
-function Node({ node, onClick, simulation }) {
+function Node({ node, onClick, simulation, onHover, onHoverOut }) {
 	const ref = React.useRef(null);
 
 	useEffect(() => {
@@ -35,19 +35,22 @@ function Node({ node, onClick, simulation }) {
 			d.fx = null;
 			d.fy = null;
 		}
-	}, [node, simulation]);
+	}, []);
 
 	return (
 		<g
 			ref={ref}
 			transform={`translate(${node.x},${node.y})`}
 			onClick={() => onClick(node)}
+			onMouseOver={() => onHover(node)}
+			onMouseOut={() => onHoverOut(node)}
+			opacity={node.opacity}
 		>
 			<circle r={node.radius} fill={node.color} cursor="pointer" />
 			<text
 				className={styles.font}
 				textAnchor="middle"
-				dy={node.radius + 15}
+				dy={node.radius + 20}
 				fontSize={15}
 				fill="white"
 				fontWeight={500}
