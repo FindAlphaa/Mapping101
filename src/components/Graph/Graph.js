@@ -34,12 +34,15 @@ function Graph({ data, width = 2004, height = 1000 }) {
 			.force("y", d3.forceY());
 
 		simulationRef.current.on("tick", () => {
-			setNodes([...nodes]);
+			simulationRef.current.on("tick", () => {
+				setNodes([...nodes]);
+				setLinks([...links]);
+			});
 			setLinks([...links]);
 		});
 
 		return () => simulationRef.current.stop();
-	}, [nodes]);
+	});
 
 	const handleNodeClick = (node) => {
 		// Add logic here when each node is clicked
