@@ -9,8 +9,9 @@ import KeyWordName from "../components/KeyWordName/KeyWordName";
 import ValueChain from "../components/ValueChain/ValueChain";
 
 function GraphPage() {
-	const { id } = useParams();
-
+	const { id } = useParams(); // URL에서 id를 받아옴
+	console.log("URL ID:", id);
+	const [selectedNodeId, setSelectedNodeId] = useState(null); // 선택한 노드의 ID를 저장
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(true); // Initializing the loading state
 
@@ -59,16 +60,34 @@ function GraphPage() {
 	};
 	useEffect(() => {
 		fetchData();
-	});
+	}, [id]); // id가 변경될 때마다 fetchData 함수 호출 (data json 파일 받기)
+
+	// Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
+	const handleNodeClick = (nodeId) => {
+		setSelectedNodeId(nodeId); // 선택한 노드의 ID 설정
+		console.log("Selected Node ID:", nodeId); // 선택한 노드의 ID를 콘솔에 출력
+	};
 
 	return (
 		<>
+			{/* 페이지 상단에 아이템 바와 정보 바 표시 */}
 			<ItemBar itemName={itemName} itemDescription={itemDescription} />
 			<InfoBar />
-
-			{loading ? <div>로딩중..</div> : <Graph data={data} />}
+			{/* 데이터 로딩 중일 때 로딩 메시지 표시, 그렇지 않으면 Graph 컴포넌트 렌더링 */}
+			{loading ? (
+				<div>로딩중..</div>
+			) : (
+				<Graph
+					data={data}
+					onNodeClick={
+						handleNodeClick
+					} /* Graph 컴포넌트에서 발생한 노드 클릭 이벤트에 대한 콜백 함수 전달 */
+				/>
+			)}
+			{/* 키워드 이름을 표시하는 컴포넌트 */}
 			<KeyWordName />
-			<ValueChain />
+			{/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시 */}
+			<ValueChain selectedNodeId={selectedNodeId} id={id} />
 		</>
 	);
 }

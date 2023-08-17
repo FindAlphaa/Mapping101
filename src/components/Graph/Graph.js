@@ -4,7 +4,7 @@ import styles from "./Graph.module.css";
 import Node from "./Node";
 import Link from "./Link";
 
-function Graph({ data, width = 2004, height = 1000 }) {
+function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	const [nodes, setNodes] = useState([...data.nodes]);
 	const [links, setLinks] = useState([...data.links]);
 	const simulationRef = useRef(null);
@@ -34,19 +34,18 @@ function Graph({ data, width = 2004, height = 1000 }) {
 			.force("y", d3.forceY());
 
 		simulationRef.current.on("tick", () => {
-			simulationRef.current.on("tick", () => {
-				setNodes([...nodes]);
-				setLinks([...links]);
-			});
+			setNodes([...nodes]);
 			setLinks([...links]);
 		});
 
 		return () => simulationRef.current.stop();
-	});
+	}, [data.links, data.nodes, nodes, links]); // 의존성 배열에 data.links, data.nodes, links 추가
 
 	const handleNodeClick = (node) => {
+		// handleNodeClick 클릭한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)
 		// Add logic here when each node is clicked
 		console.log("Node clicked:", node);
+		onNodeClick(node.id); /* 콜백 함수 */
 	};
 
 	return (
