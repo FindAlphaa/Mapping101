@@ -18,10 +18,44 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	};
 
 	const handleNodeHover = (node) => {
-		// handleNodeHover 마우스 오버한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)
-		// Add logic here when each node is hovered
-		console.log("Node hovered:", node);
+		// 1. Reset opacity of all nodes and links
+		nodes.forEach((n) => (n.opacity = 1));
+		links.forEach((link) => (link.opacity = 1));
+
+		// 2. Set opacity for links not connected to the hovered node
+		const unconnectedLinks = links.filter(
+			(link) =>
+				!(link.source.id === node.id || link.target.id === node.id)
+		);
+		unconnectedLinks.forEach((link) => (link.opacity = 0.1));
+
+		// 3. Set opacity for nodes not connected to the hovered node
+		const connectedNodeIds = links
+			.filter(
+				(link) =>
+					link.source.id === node.id || link.target.id === node.id
+			)
+			.flatMap((link) => [link.source.id, link.target.id]);
+
+		nodes.forEach((n) => {
+			if (!connectedNodeIds.includes(n.id) && n.id !== node.id) {
+				n.opacity = 0.1;
+			}
+		});
+
 		setHoveredNode(node.id);
+	};
+
+	const handleNodeHoverOut = () => {
+		links.forEach((link) => {
+			link.opacity = 1;
+		});
+
+		nodes.forEach((node) => {
+			node.opacity = 1;
+		});
+
+		setHoveredNode(null);
 	};
 
 	const simulationRef = useRef(null);
@@ -88,6 +122,8 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 								node={node}
 								onClick={handleNodeClick}
 								simulation={simulationRef}
+								onHover={handleNodeHover}
+								onHoverOut={handleNodeHoverOut}
 							/>
 						))}
 					</g>

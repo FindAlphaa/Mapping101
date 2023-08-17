@@ -9,7 +9,7 @@ function Link({ link }) {
 			y2={link.target.y}
 			stroke="#999"
 			strokeWidth={link.value}
-			strokeOpacity={0.6}
+			strokeOpacity={link.opacity}
 		/>
 	);
 }
