@@ -4,18 +4,21 @@ import styles from "./ValueChain.module.css";
 
 function ValueChain({ selectedNodeId, id }) {
   const [keywordsData, setKeywordsData] = useState(null);
-  //keywordsData, node data, node는 graph.js에서 node.id로 값 받아옴
+  const [companyData, setCompanyData] = useState(null);
 
   useEffect(() => {
     if (id) {
-      // 선택한 노드 ID를 사용하여 JSON 파일 URL 구성
-      axios
-        .get(`/data/${id}_keyword.json`)
-        .then((keywordResponse) => {
+      // 두 개의 JSON 파일을 동시에 요청
+      Promise.all([
+        axios.get(`/data/${id}_keyword.json`), // keyword 파일
+        axios.get(`/data/${id}_company.json`), // company 파일
+      ])
+        .then(([keywordResponse, companyResponse]) => {
           setKeywordsData(keywordResponse.data);
+          setCompanyData(companyResponse.data);
         })
         .catch((error) => {
-          console.error("Error fetching keyword data:", error);
+          console.error("Error fetching data:", error);
         });
     }
   }, [id]);
@@ -24,9 +27,22 @@ function ValueChain({ selectedNodeId, id }) {
     <div className={styles.valueChainsection}>
       <div className={styles.valueChainVisual}>
         <div className={styles.companyList}>
-          <div className={styles.companySection}></div>
+          <div className={styles.companySection}>
+            {companyData && companyData[selectedNodeId] && (
+              <div className={styles.valueChain}>
+                <ul className={styles.keywordList}>
+                  {companyData[selectedNodeId].map((keyword, kIndex) => (
+                    <li key={kIndex} className={styles.keywordItem}>
+                      {keyword}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
         <div className={styles.valueChain} />
+
         {keywordsData && keywordsData[selectedNodeId] && (
           <div className={styles.valueChain}>
             <ul className={styles.keywordList}>
