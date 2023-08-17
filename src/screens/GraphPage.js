@@ -10,7 +10,7 @@ import ValueChain from "../components/ValueChain/ValueChain";
 
 function GraphPage() {
   const { id } = useParams();
-
+  const [selectedKeywords, setSelectedKeywords] = useState([]);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true); // Initializing the loading state
 
@@ -66,9 +66,21 @@ function GraphPage() {
       <ItemBar itemName={itemName} itemDescription={itemDescription} />
       <InfoBar />
 
-      {loading ? <div>로딩중..</div> : <Graph data={data} />}
+      {loading ? (
+        <div>로딩중..</div>
+      ) : (
+        // onNodeClick: setSelectedKeywords 함수 바인딩
+        // graph에서. node클릭시 해당 노드와 관련된 키워드들이 setSelectedKeywords에 저장
+        <Graph
+          data={data}
+          onNodeClick={(selectedNodeId) => {
+            console.log("Selected Node ID:", selectedNodeId);
+            // selectedNodeId 노드의 선택한 id값 전달 -> ValueChain 컴포넌트로 전달
+          }}
+        />
+      )}
       <KeyWordName />
-      <ValueChain />
+      <ValueChain selectedNodeId={selectedKeywords} />
     </>
   );
 }
