@@ -26,23 +26,20 @@ function ValueChain({ selectedNodeId, id }) {
   return (
     <div className={styles.valueChainsection}>
       <div className={styles.valueChainVisual}>
+        {/* company list section */}
         <div className={styles.companyList}>
-          <div className={styles.companySection}>
-            {companyData && companyData[selectedNodeId] && (
-              <div className={styles.valueChain}>
-                <ul className={styles.keywordList}>
-                  {companyData[selectedNodeId].map((keyword, kIndex) => (
-                    <li key={kIndex} className={styles.keywordItem}>
-                      {keyword}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+          {companyData && companyData[selectedNodeId] && (
+            <ul className={styles.keywordList}>
+              {companyData[selectedNodeId].map((keyword, kIndex) => (
+                <li key={kIndex} className={styles.keywordItem}>
+                  {keyword}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className={styles.valueChain} />
-
+        {/* Keyword data section */}
         {keywordsData && keywordsData[selectedNodeId] && (
           <div className={styles.valueChain}>
             <ul className={styles.keywordList}>
