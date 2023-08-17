@@ -3,20 +3,30 @@ import axios from "axios";
 import styles from "./ValueChain.module.css";
 
 function ValueChain({ selectedNodeId, id }) {
-  const [keywordsData, setKeywordsData] = useState(null);
+  const [OtherSectorKeyword, setOtherSectorKeyword] = useState(null);
+  const [SameSectorKeyword, setSameSectorKeyword] = useState(null);
   const [companyData, setCompanyData] = useState(null);
 
   useEffect(() => {
     if (id) {
-      // 두 개의 JSON 파일을 동시에 요청
+      // 3개의 JSON 파일을 동시에 요청
       Promise.all([
-        axios.get(`/data/${id}_keyword.json`), // keyword 파일
+        axios.get(`/data/${id}_keyword_othersector.json`), // keyword_othersector 파일
+        axios.get(`/data/${id}_keyword_samesector.json`), // keyword_samesector 파일
         axios.get(`/data/${id}_company.json`), // company 파일
       ])
-        .then(([keywordResponse, companyResponse]) => {
-          setKeywordsData(keywordResponse.data);
-          setCompanyData(companyResponse.data);
-        })
+        .then(
+          ([
+            keywordOtherSectorResponse,
+            keywordSameSectorResponse,
+            companyResponse,
+          ]) => {
+            // 각각의 응답을 적절한 state에 설정
+            setOtherSectorKeyword(keywordOtherSectorResponse.data);
+            setSameSectorKeyword(keywordSameSectorResponse.data);
+            setCompanyData(companyResponse.data);
+          }
+        )
         .catch((error) => {
           console.error("Error fetching data:", error);
         });
@@ -39,19 +49,37 @@ function ValueChain({ selectedNodeId, id }) {
             </ul>
           )}
         </div>
-        <div className={styles.valueChain} />
-        {/* Keyword data section */}
-        {keywordsData && keywordsData[selectedNodeId] && (
-          <div className={styles.valueChain}>
+
+        {/* Other Sector data section */}
+        <div className={styles.valueChain}>
+          {OtherSectorKeyword && OtherSectorKeyword[selectedNodeId] && (
             <ul className={styles.keywordList}>
-              {keywordsData[selectedNodeId].map((keyword, kIndex) => (
+              {OtherSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
                 <li key={kIndex} className={styles.keywordItem}>
                   {keyword}
                 </li>
               ))}
             </ul>
-          </div>
-        )}
+          )}
+        </div>
+
+        {/* Title and other sections */}
+        <div className={styles.titleBox}>
+          <div className={styles.keywords}>Same Sector</div>
+        </div>
+
+        <div className={styles.valueChain2}>
+          {/* Same Sector data section */}
+          {SameSectorKeyword && SameSectorKeyword[selectedNodeId] && (
+            <ul className={styles.keywordList}>
+              {SameSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
+                <li key={kIndex} className={styles.keywordItem}>
+                  {keyword}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );

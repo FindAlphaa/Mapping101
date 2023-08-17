@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const KeywordSection = () => {
   return (
     <div className={styles.keywordSection}>
-      <div className={styles.keywords}>Keywords</div>
+      <div className={styles.keywords}>Other Sector</div>
       <Link to="/company" className={styles.navLink}>
         <div className={styles.companyList}>Company List</div>
       </Link>
