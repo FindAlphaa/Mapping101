@@ -1,171 +1,80 @@
-// Graph.js
-
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-
 import styles from "./Graph.module.css";
+import Node from "./Node";
+import Link from "./Link";
 
-function Graph({ data, width = 2004, height = 1000 }) {
-	const ref = useRef(null);
+function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
+  const [nodes, setNodes] = useState([...data.nodes]);
+  const [links, setLinks] = useState([...data.links]);
+  const simulationRef = useRef(null);
 
-	useEffect(() => {
-		const zoom = d3
-			.zoom()
-			.scaleExtent([0.1, 10]) // Set the zoom scale range
-			.on("zoom", (event) => {
-				const { transform } = event;
-				// Apply the zoom transform to the 'g' element containing links and nodes
-				d3.select(".nodes").attr("transform", transform);
-				d3.select(".links").attr("transform", transform);
-			});
+  useEffect(() => {
+    data.nodes.forEach((node) => {
+      node._children = data.links
+        .filter((link) => link.source === node.id)
+        .map((link) => data.nodes.find((n) => n.id === link.target));
+    });
 
-		data.nodes.forEach((node) => {
-			node._children = data.links
-				.filter((link) => link.source === node.id)
-				.map((link) => data.nodes.find((n) => n.id === link.target)); // Find the corresponding node object
-		});
+    if (simulationRef.current) {
+      simulationRef.current.nodes(nodes);
+    }
 
-		const links = data.links.map((d) => ({ ...d }));
-		const nodes = data.nodes.map((d) => ({ ...d }));
+    simulationRef.current = d3
+      .forceSimulation(nodes)
+      .force(
+        "link",
+        d3
+          .forceLink(links)
+          .id((d) => d.id)
+          .distance(100)
+      )
+      .force("charge", d3.forceManyBody().strength(-1000))
+      .force("x", d3.forceX())
+      .force("y", d3.forceY());
 
-		const simulation = d3
-			.forceSimulation(nodes)
-			.force(
-				"link",
-				d3
-					.forceLink(links)
-					.id((d) => d.id)
-					.distance(100)
-			)
-			.force("charge", d3.forceManyBody().strength(-1000))
-			.force("x", d3.forceX())
-			.force("y", d3.forceY());
+    simulationRef.current.on("tick", () => {
+      setNodes([...nodes]);
+      setLinks([...links]);
+    });
 
-		const svg = d3
-			.select(ref.current)
-			.attr("width", width)
-			.attr("height", height)
-			.attr("viewBox", [-width / 2, -height / 2, width, height])
-			.attr("style", "max-width:100%; height:auto;")
-			.call(zoom);
+    return () => simulationRef.current.stop();
+  }, [data.links, data.nodes, nodes, links]); // 의존성 배열에 data.links, data.nodes, links 추가
 
-		const link = svg
-			.append("g")
-			.attr("class", "links")
-			.attr("stroke", "#999")
-			.attr("stroke-opacity", 0.6)
-			.selectAll("line")
-			.data(links)
-			.join("line");
+  const handleNodeClick = (node) => {
+    // handleNodeClick 클릭한 노드의 id를 상위 컴포넌트로 전달 (GraphPage)
+    // Add logic here when each node is clicked
+    console.log("Node clicked:", node);
+    onNodeClick(node.id); /* 콜백 함수 */
+  };
 
-		const node = svg
-			.append("g")
-			.attr("class", "nodes")
-			.attr("stroke", "#fff")
-			.attr("stroke-width", 1.5)
-			.selectAll("g")
-			.data(nodes)
-			.join("g")
-			.on("mouseenter", function (event, d) {
-				link.attr("display", "none")
-					.attr("stroke-width", 3)
-					.attr("stroke", "black")
-					.filter((l) => l.source === d || l.target === d)
-					.attr("display", "block");
-			})
-			.on("mouseleave", (evt) => {
-				link.attr("stroke-width", 1.5)
-					.attr("stroke", "#bbbbbb")
-					.attr("display", "block");
-			});
-
-		const circle = node
-			.append("circle")
-			.attr("r", (d) => d.radius)
-			.attr("fill", (d) => d.color)
-			.attr("cursor", "pointer");
-
-		const text = node
-			.append("text")
-			.attr("text-anchor", "middle")
-			// .attr("dx", 0)
-			.attr("dy", "0")
-			.text((d) => d.id)
-			.lower()
-			.attr("font-size", 15)
-			.attr("fill", "black")
-			.attr("stroke", "none")
-			.raise();
-
-		circle.append("title").text((d) => d.id);
-
-		// Add a drag behavior.
-		node.call(
-			d3
-				.drag()
-				.on("start", dragstarted)
-				.on("drag", dragged)
-				.on("end", dragended)
-		);
-
-		// Set the position attributes of links and nodes each time the simulation ticks.
-		simulation.on("tick", () => {
-			node.attr("transform", (d) => `translate(${d.x},${d.y})`);
-
-			link.attr("x1", (d) => d.source.x)
-				.attr("y1", (d) => d.source.y)
-				.attr("x2", (d) => d.target.x)
-				.attr("y2", (d) => d.target.y);
-		});
-
-		////////////////////////////////////////////////////////////////////////////////////////////
-		// DRAG EVENT
-		////////////////////////////////////////////////////////////////////////////////////////////
-		// Reheat the simulation when drag starts, and fix the subject position.
-		function dragstarted(event) {
-			if (!event.active) simulation.alphaTarget(0.3).restart();
-			event.subject.fx = event.subject.x;
-			event.subject.fy = event.subject.y;
-		}
-
-		// Update the subject (dragged node) position during drag.
-		function dragged(event) {
-			event.subject.fx = event.x;
-			event.subject.fy = event.y;
-		}
-
-		// Restore the target alpha so the simulation cools after dragging ends.
-		// Unfix the subject position now that it’s no longer being dragged.
-		function dragended(event) {
-			if (!event.active) simulation.alphaTarget(0);
-			event.subject.fx = null;
-			event.subject.fy = null;
-		}
-
-		node.call(
-			d3
-				.drag()
-				.on("start", dragstarted)
-				.on("drag", dragged)
-				.on("end", dragended)
-		);
-
-		return () => {
-			// Cleanup D3 event listeners here
-			svg.on(".zoom", null); // Remove the zoom event listener
-			node.on(".drag", null); // Remove the drag event listener
-			simulation.on("tick", null);
-
-			// Remove any other D3 generated content or event listeners
-			d3.select(ref.current).selectAll("*").remove();
-		};
-	}, []);
-
-	return (
-		<div className={styles.graph}>
-			<svg ref={ref} className={styles.graph}></svg>
-		</div>
-	);
+  return (
+    <div className={styles.graph}>
+      <svg
+        width={width}
+        height={height}
+        viewBox={[-width / 2, -height / 2, width, height]}
+        style={{ maxWidth: "100%", height: "auto" }}
+        // ... other svg properties ...
+      >
+        <g className="links">
+          {links.map((link, index) => (
+            <Link key={index} link={link} />
+          ))}
+        </g>
+        <g className="nodes">
+          {nodes.map((node, index) => (
+            <Node
+              key={index}
+              node={node}
+              onClick={handleNodeClick}
+              simulation={simulationRef}
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
+  );
 }
 
 export default Graph;
