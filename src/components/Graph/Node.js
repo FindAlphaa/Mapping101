@@ -50,8 +50,8 @@ function Node({ node, onClick, simulation, onHover, onHoverOut }) {
 			<text
 				className={styles.font}
 				textAnchor="middle"
-				dy={node.radius + 20}
-				fontSize={15}
+				dy={node.radius + 30}
+				fontSize={30}
 				fill="white"
 				fontWeight={500}
 			>
