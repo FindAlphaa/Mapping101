@@ -1,15 +1,16 @@
 import styles from "./KeyWordName.module.css";
 import { Link } from "react-router-dom";
+import React from "react";
 
-const KeywordSection = () => {
-  return (
-    <div className={styles.keywordSection}>
-      <div className={styles.keywords}>Other Sector</div>
-      <Link to="/company" className={styles.navLink}>
-        <div className={styles.companyList}>Company List</div>
-      </Link>
-    </div>
-  );
-};
+const KeywordSection = React.forwardRef((props, ref) => {
+	return (
+		<div className={styles.keywordSection} ref={ref}>
+			<div className={styles.keywords}>Other Sector</div>
+			<Link to="/company" className={styles.navLink}>
+				<div className={styles.companyList}>Company List</div>
+			</Link>
+		</div>
+	);
+});
 
 export default KeywordSection;
