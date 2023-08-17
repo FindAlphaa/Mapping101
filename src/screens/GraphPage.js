@@ -32,7 +32,11 @@ function GraphPage() {
       itemName: "소재",
       itemDescription: "Material",
     },
-    it: { itemName: "IT", itemDescription: "Internet Technology" },
+    it: {
+      itemName: "IT",
+      itemDescription: "Internet Technology",
+    },
+
     "communication-service": {
       itemName: "	커뮤니케이션 서비스",
       itemDescription: "Communication Services",
