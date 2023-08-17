@@ -53,12 +53,13 @@ function GraphPage() {
   };
   const { itemName, itemDescription } = itemsMap[id] || {};
 
-  const fetchData = async () => {
-    const response = await axios.get(`/data/${id}.json`);
-    setData(response.data);
-    setLoading(false); // 데이터 로딩 완료
-  };
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`/data/${id}.json`);
+      setData(response.data);
+      setLoading(false); // 데이터 로딩 완료
+    };
+
     fetchData();
   }, [id]); // id가 변경될 때마다 fetchData 함수 호출 (data json 파일 받기)
 
@@ -86,7 +87,8 @@ function GraphPage() {
       )}
       {/* 키워드 이름을 표시하는 컴포넌트 */}
       <KeyWordName />
-      {/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시 */}
+      {/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시*/}
+      {/* id: leaf node-> json 파일 불러오는데 사용, selectedNodeId: 선택된 노드에 대한 정보를 화면에 표시 */}
       <ValueChain selectedNodeId={selectedNodeId} id={id} />
     </>
   );
