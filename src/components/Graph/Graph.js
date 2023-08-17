@@ -8,6 +8,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	const [nodes, setNodes] = useState([...data.nodes]);
 	const [links, setLinks] = useState([...data.links]);
 	const simulationRef = useRef(null);
+	const svgRef = useRef(null); // SVG 요소에 대한 참조 추가
 
 	useEffect(() => {
 		data.nodes.forEach((node) => {
@@ -38,6 +39,17 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 			setLinks([...links]);
 		});
 
+		const zoom = d3
+			.zoom()
+			.scaleExtent([0.5, 5]) // 줌의 범위 설정 (예: 0.5x ~ 5x)
+			.on("zoom", (event) => {
+				d3.select(svgRef.current)
+					.select("g")
+					.attr("transform", event.transform);
+			});
+
+		d3.select(svgRef.current).call(zoom).on("dblclick.zoom", null); // 더블클릭 시 줌 동작 비활성화
+
 		return () => simulationRef.current.stop();
 	}, [data.links, data.nodes, nodes, links]); // 의존성 배열에 data.links, data.nodes, links 추가
 
@@ -51,26 +63,30 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	return (
 		<div className={styles.graph}>
 			<svg
+				ref={svgRef} // SVG 요소에 참조 연결
 				width={width}
 				height={height}
 				viewBox={[-width / 2, -height / 2, width, height]}
 				style={{ maxWidth: "100%", height: "auto" }}
-				// ... other svg properties ...
 			>
-				<g className="links">
-					{links.map((link, index) => (
-						<Link key={index} link={link} />
-					))}
-				</g>
-				<g className="nodes">
-					{nodes.map((node, index) => (
-						<Node
-							key={index}
-							node={node}
-							onClick={handleNodeClick}
-							simulation={simulationRef}
-						/>
-					))}
+				<g>
+					{" "}
+					{/* 모든 요소를 포함하는 g 요소 추가 */}
+					<g className="links">
+						{links.map((link, index) => (
+							<Link key={index} link={link} />
+						))}
+					</g>
+					<g className="nodes">
+						{nodes.map((node, index) => (
+							<Node
+								key={index}
+								node={node}
+								onClick={handleNodeClick}
+								simulation={simulationRef}
+							/>
+						))}
+					</g>
 				</g>
 			</svg>
 		</div>
