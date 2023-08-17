@@ -5,7 +5,8 @@ import axios from "axios";
 import ItemBar from "../components/ItemBar/ItemBar";
 import InfoBar from "../components/InfoBar/InfoBar";
 import Graph from "../components/Graph/Graph";
-import Footer from "../components/Footer/Footer";
+import KeyWordName from "../components/KeyWordName/KeyWordName";
+import ValueChain from "../components/ValueChain/ValueChain";
 
 function GraphPage() {
 	const { id } = useParams();
@@ -66,6 +67,8 @@ function GraphPage() {
 			<InfoBar />
 
 			{loading ? <div>로딩중..</div> : <Graph data={data} />}
+			<KeyWordName />
+			<ValueChain />
 		</>
 	);
 }

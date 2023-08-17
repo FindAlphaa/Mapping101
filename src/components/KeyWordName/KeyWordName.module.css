@@ -1,0 +1,32 @@
+.companyList,
+.keywords {
+  position: absolute;
+  top: 20px;
+  left: 210px;
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  width: 126px;
+}
+.companyList {
+  left: 1185px;
+  width: 220px;
+  height: 45px;
+  font-family: "Poppins";
+  font-size: 30px;
+}
+.keywordSection {
+  position: relative;
+  background-color: var(--color-gray-100);
+  width: 100%;
+  height: 84px;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-deepskyblue);
+  font-family: var(--font-noto-sans-kr);
+  justify-content: space-between;
+}
