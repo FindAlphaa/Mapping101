@@ -35,7 +35,7 @@ function Node({ node, onClick, simulation }) {
 			d.fx = null;
 			d.fy = null;
 		}
-	}, [node, simulation]);
+	}, []);
 
 	return (
 		<g
