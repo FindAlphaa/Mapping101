@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
+import styles from "./Graph.module.css";
+
 function Node({ node, onClick, simulation }) {
 	const ref = React.useRef(null);
 
@@ -42,7 +44,14 @@ function Node({ node, onClick, simulation }) {
 			onClick={() => onClick(node)}
 		>
 			<circle r={node.radius} fill={node.color} cursor="pointer" />
-			<text textAnchor="middle" dy="0" fontSize={15} fill="black">
+			<text
+				className={styles.font}
+				textAnchor="middle"
+				dy={node.radius + 15}
+				fontSize={15}
+				fill="white"
+				fontWeight={500}
+			>
 				{node.id}
 			</text>
 		</g>

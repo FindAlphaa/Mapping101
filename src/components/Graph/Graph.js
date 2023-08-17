@@ -70,7 +70,6 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 				style={{ maxWidth: "100%", height: "auto" }}
 			>
 				<g>
-					{" "}
 					{/* 모든 요소를 포함하는 g 요소 추가 */}
 					<g className="links">
 						{links.map((link, index) => (
