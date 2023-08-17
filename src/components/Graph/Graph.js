@@ -73,10 +73,11 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 				d3
 					.forceLink(links)
 					.id((d) => d.id)
-					.distance(100)
+					.distance(200)
 			)
-			.force("charge", d3.forceManyBody().strength(-2000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
-			.force("collide", d3.forceCollide().radius(50)) // 노드 간의 충돌 방지
+			.force("charge", d3.forceManyBody().strength(-3000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
+			.force("collide", d3.forceCollide().radius(100)) // 노드 간의 충돌 방지
+			.force("center", d3.forceCenter()) // 노드를 화면의 중앙에 위치시킴
 			.force("x", d3.forceX()) // 노드의 x 좌표를 설정
 			.force("y", d3.forceY()); // 노드의 y 좌표를 설정
 
@@ -87,7 +88,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 
 		const zoom = d3
 			.zoom()
-			.scaleExtent([0.5, 5]) // 줌의 범위 설정 (예: 0.5x ~ 5x)
+			.scaleExtent([0.1, 10]) // 줌의 범위 설정 (예: 0.5x ~ 5x)
 			.on("zoom", (event) => {
 				d3.select(svgRef.current)
 					.select("g")
