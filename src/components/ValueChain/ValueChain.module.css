@@ -1,3 +1,15 @@
+.keywordItem {
+  width: 120px; /* 원하는 사각형의 가로 크기를 설정합니다. */
+  height: 80px; /* 원하는 사각형의 세로 크기를 설정합니다. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .companyList,
 .valueChain {
   position: absolute;
