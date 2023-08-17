@@ -66,8 +66,6 @@ function GraphPage() {
 			<InfoBar />
 
 			{loading ? <div>로딩중..</div> : <Graph data={data} />}
-
-			<Footer />
 		</>
 	);
 }
