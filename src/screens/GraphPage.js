@@ -1,11 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import NavBar from "../components/NavBar/NavBar";
 import ItemBar from "../components/ItemBar/ItemBar";
 import InfoBar from "../components/InfoBar/InfoBar";
 import Graph from "../components/Graph/Graph";
+import Footer from "../components/Footer/Footer";
 
 function GraphPage() {
 	const { id } = useParams();
@@ -58,15 +58,16 @@ function GraphPage() {
 	};
 	useEffect(() => {
 		fetchData();
-	}, [data]);
+	});
 
 	return (
 		<>
-			<NavBar />
 			<ItemBar itemName={itemName} itemDescription={itemDescription} />
 			<InfoBar />
 
 			{loading ? <div>로딩중..</div> : <Graph data={data} />}
+
+			<Footer />
 		</>
 	);
 }
