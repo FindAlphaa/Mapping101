@@ -37,7 +37,6 @@ function ValueChain({ selectedNodeId, id }) {
     <div className={styles.valueChainsection}>
       <div className={styles.valueChainVisual}>
         {/* company list section */}
-
         <div className={styles.companyList}>
           {companyData && companyData[selectedNodeId] && (
             <ul className={styles.keywordList}>
