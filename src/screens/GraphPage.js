@@ -13,7 +13,7 @@ import { select } from "d3";
 
 function GraphPage() {
 	const { id } = useParams(); // URL에서 id를 받아옴
-	console.log("URL ID:", id);
+
 	const [selectedNodeId, setSelectedNodeId] = useState(null); // 선택한 노드의 ID를 저장
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(true); // Initializing the loading state

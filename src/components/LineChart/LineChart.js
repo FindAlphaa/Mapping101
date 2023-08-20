@@ -26,7 +26,30 @@ ChartJS.register(
 
 const LineChart = ({ selectedNodeId }) => {
 	const [data, setData] = useState({});
-	const [loading, setLoading] = useState(false); // Initializing the loading state
+	const [loading, setLoading] = useState(true); // Initializing the loading state
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				console.log(selectedNodeId);
+				const response = await axios.get(
+					`http://localhost:8080/getData/${encodeURIComponent(
+						selectedNodeId
+					)}`
+				);
+
+				const data = response.data;
+
+				setData(data);
+				setLoading((prev) => !prev); // 데이터 로딩 완료
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchData();
+		console.log(data);
+	}, [selectedNodeId]);
 
 	const graphData = {
 		labels: [
@@ -43,40 +66,23 @@ const LineChart = ({ selectedNodeId }) => {
 				label: "My First dataset",
 				backgroundColor: "rgba(75,192,192,0.4)",
 				borderColor: "rgba(75,192,192,1)",
-				data: { data },
+				data: [65, 59, 80, 81, 56, 55, 40],
 			},
 			{
 				label: "My Second dataset",
 				backgroundColor: "rgba(153, 102, 255, 0.2)",
 				borderColor: "rgba(153, 102, 255,1)",
-				data: { data },
+				data: [28, 48, 40, 19, 86, 27, 90],
 			},
 		],
 	};
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await axios.get(
-					`http://localhost:8080/getData/${selectedNodeId}`
-				);
-
-				const data = response.data;
-
-				setData(data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-
-		fetchData();
-		console.log(data);
-	}, [selectedNodeId]);
 
 	return (
 		<>
 			{loading ? (
 				<div>Loading...</div>
 			) : (
+				//  로딩 스피너 추가
 				<div className={styles.graph}>
 					<h2 className={styles.graphTitle}>{selectedNodeId}</h2>
 					<Line data={graphData} />
