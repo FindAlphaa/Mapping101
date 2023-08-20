@@ -18,7 +18,7 @@ function GraphPage() {
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(true); // Initializing the loading state
 
-	const keyWordSectionRef = useRef(null);
+	const infoBarRef = useRef(null);
 
 	const itemsMap = {
 		"consumer-goods": {
@@ -76,8 +76,8 @@ function GraphPage() {
 	// Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
 	const handleNodeClick = (nodeId) => {
 		setSelectedNodeId(nodeId); // 선택한 노드의 ID 설정
-		if (keyWordSectionRef.current) {
-			keyWordSectionRef.current.scrollIntoView({ behavior: "smooth" });
+		if (infoBarRef.current) {
+			infoBarRef.current.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
@@ -96,9 +96,13 @@ function GraphPage() {
 					} /* Graph 컴포넌트에서 발생한 노드 클릭 이벤트에 대한 콜백 함수 전달 */
 				/>
 			)}
+<<<<<<< HEAD:src/screens/GraphPage.js
 			<InfoBar selectedNodeId={selectedNodeId} />
+=======
+			<InfoBar selectedNodeId={selectedNodeId} ref={infoBarRef} />
+>>>>>>> make-backend:client/src/screens/GraphPage.js
 			{/* 키워드 이름을 표시하는 컴포넌트 */}
-			<KeywordSection ref={keyWordSectionRef} />
+			<KeywordSection />
 			{/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시*/}
 			{/* id: leaf node-> json 파일 불러오는데 사용, selectedNodeId: 선택된 노드에 대한 정보를 화면에 표시 */}
 			<ValueChain selectedNodeId={selectedNodeId} id={id} />
