@@ -35,7 +35,7 @@ const LineChart = ({ selectedNodeId }) => {
 					`http://localhost:5000/api/graph/${selectedNodeId}`
 				);
 
-				setData(response.data.data);
+				setData(response.data);
 				setLoading(false); // 데이터 로딩 완료
 			} catch (error) {
 				console.log(error);
@@ -49,31 +49,34 @@ const LineChart = ({ selectedNodeId }) => {
 		console.log(data);
 	}, [selectedNodeId]);
 
-	const graphData = {
-		labels: [
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-		],
-		datasets: [
-			{
-				label: "My First dataset",
-				backgroundColor: "rgba(75,192,192,0.4)",
-				borderColor: "rgba(75,192,192,1)",
-				data,
-			},
-			{
-				label: "My Second dataset",
-				backgroundColor: "rgba(153, 102, 255, 0.2)",
-				borderColor: "rgba(153, 102, 255,1)",
-				data,
-			},
-		],
-	};
+	let graphData = {};
+	if (data) {
+		graphData = {
+			labels: [
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+			],
+			datasets: [
+				{
+					label: "My First dataset",
+					backgroundColor: "rgba(75,192,192,0.4)",
+					borderColor: "rgba(75,192,192,1)",
+					data: data.data,
+				},
+				{
+					label: "My Second dataset",
+					backgroundColor: "rgba(153, 102, 255, 0.2)",
+					borderColor: "rgba(153, 102, 255,1)",
+					data: data.data,
+				},
+			],
+		};
+	}
 
 	return (
 		<>
@@ -81,9 +84,9 @@ const LineChart = ({ selectedNodeId }) => {
 				<div>Loading...</div>
 			) : (
 				//  로딩 스피너 추가
-				<div className={styles.graph}>
-					<h2 className={styles.graphTitle}>{selectedNodeId}</h2>
-					<Line data={graphData} />
+				<div className={styles.lineWrapper}>
+					<h2 className={styles.lineTitle}>{selectedNodeId}</h2>
+					<Line data={graphData} className={styles.line} />
 				</div>
 			)}
 		</>

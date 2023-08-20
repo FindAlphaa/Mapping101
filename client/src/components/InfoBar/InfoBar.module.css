@@ -1,15 +1,8 @@
 .infoBar {
-	padding: 15px 220px 15px 190px;
+	padding: 15px 200px;
 	background-color: var(--color-gray-200);
-}
-
-.infoWrapper {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.trendScoreBox {
-	width: 473px;
-	height: 110px;
+	width: 100%;
+	height: 400px;
+	box-sizing: border-box;
+	margin: 0 auto;
 }

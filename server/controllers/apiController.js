@@ -8,8 +8,8 @@ exports.getGraph = async (req, res) => {
 		const data = await Graph.findOne({ nodeId: id });
 
 		if (data) {
-			console.log(data.data);
-			return res.status(200).json({ success: true, data: data.data });
+			console.log(data);
+			return res.status(200).json(data);
 		} else {
 			return res
 				.status(404)

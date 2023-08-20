@@ -3,14 +3,14 @@ import LineChart from "../LineChart/LineChart";
 
 import styles from "./InfoBar.module.css";
 
-function InfoBar({ selectedNodeId }) {
+const InfoBar = React.forwardRef((props, ref) => {
 	return (
-		<div className={styles.infoBar}>
+		<div className={styles.infoBar} ref={ref}>
 			<div className={styles.infoWrapper}>
-				<LineChart selectedNodeId={selectedNodeId} />
+				<LineChart selectedNodeId={props.selectedNodeId} />
 			</div>
 		</div>
 	);
-}
+});
 
 export default InfoBar;
