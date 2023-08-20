@@ -9,6 +9,7 @@ import KeywordSection from "../components/KeyWordName/KeyWordName";
 import ValueChain from "../components/ValueChain/ValueChain";
 
 import styles from "../components/Graph/Graph.module.css";
+import { select } from "d3";
 
 function GraphPage() {
 	const { id } = useParams(); // URL에서 id를 받아옴
@@ -84,7 +85,6 @@ function GraphPage() {
 		<>
 			{/* 페이지 상단에 아이템 바와 정보 바 표시 */}
 			<ItemBar itemName={itemName} itemDescription={itemDescription} />
-			<InfoBar />
 			{/* 데이터 로딩 중일 때 로딩 메시지 표시, 그렇지 않으면 Graph 컴포넌트 렌더링 */}
 			{loading ? (
 				<div className={styles.graph}>로딩중..</div>
@@ -96,6 +96,7 @@ function GraphPage() {
 					} /* Graph 컴포넌트에서 발생한 노드 클릭 이벤트에 대한 콜백 함수 전달 */
 				/>
 			)}
+			<InfoBar selectedNodeId={selectedNodeId} />
 			{/* 키워드 이름을 표시하는 컴포넌트 */}
 			<KeywordSection ref={keyWordSectionRef} />
 			{/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시*/}
