@@ -1,15 +1,12 @@
-import Calendar from "../Calendar/Calendar";
+import LineChart from "../LineChart/LineChart";
 
 import styles from "./InfoBar.module.css";
 
-function InfoBar() {
+function InfoBar({ selectedNodeId }) {
 	return (
 		<div className={styles.infoBar}>
 			<div className={styles.infoWrapper}>
-				<Calendar />
-
-				{/* TrendScore Box */}
-				<div className={styles.trendScoreBox}></div>
+				<LineChart selectedNodeId={selectedNodeId} />
 			</div>
 		</div>
 	);
