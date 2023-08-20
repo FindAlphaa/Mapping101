@@ -31,7 +31,7 @@ const LineChart = ({ selectedNodeId }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				console.log(selectedNodeId);
+				console.log(`selectedNodeId: ${selectedNodeId}`);
 				const response = await axios.get(
 					`http://localhost:8080/getData/${encodeURIComponent(
 						selectedNodeId
