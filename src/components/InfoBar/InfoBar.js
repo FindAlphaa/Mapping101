@@ -7,9 +7,6 @@ function InfoBar({ selectedNodeId }) {
 		<div className={styles.infoBar}>
 			<div className={styles.infoWrapper}>
 				<LineChart selectedNodeId={selectedNodeId} />
-
-				{/* TrendScore Box */}
-				<div className={styles.trendScoreBox}></div>
 			</div>
 		</div>
 	);
