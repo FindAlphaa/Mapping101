@@ -11,3 +11,10 @@
 	height: 300px;
 	margin: 0 auto;
 }
+
+.lineWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
