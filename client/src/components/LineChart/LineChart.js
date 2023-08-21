@@ -63,15 +63,9 @@ const LineChart = ({ selectedNodeId }) => {
 			],
 			datasets: [
 				{
-					label: "My First dataset",
+					label: "긍정 지수",
 					backgroundColor: "rgba(75,192,192,0.4)",
 					borderColor: "rgba(75,192,192,1)",
-					data: data.data,
-				},
-				{
-					label: "My Second dataset",
-					backgroundColor: "rgba(153, 102, 255, 0.2)",
-					borderColor: "rgba(153, 102, 255,1)",
 					data: data.data,
 				},
 			],
