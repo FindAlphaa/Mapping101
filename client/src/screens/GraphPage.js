@@ -8,6 +8,8 @@ import Graph from "../components/Graph/Graph";
 import KeywordSection from "../components/KeyWordName/KeyWordName";
 import ValueChain from "../components/ValueChain/ValueChain";
 
+import Loading from "../components/Loading/Loading";
+
 import styles from "../components/Graph/Graph.module.css";
 import { select } from "d3";
 
@@ -60,7 +62,7 @@ function GraphPage() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await axios.get(`/data/${id}.json`);
+			const response = await axios.get(`/api/network-graph/${id}`);
 			setData(response.data);
 			setLoading(false); // 데이터 로딩 완료
 		};
@@ -87,7 +89,18 @@ function GraphPage() {
 			<ItemBar itemName={itemName} itemDescription={itemDescription} />
 			{/* 데이터 로딩 중일 때 로딩 메시지 표시, 그렇지 않으면 Graph 컴포넌트 렌더링 */}
 			{loading ? (
-				<div className={styles.graph}>로딩중..</div>
+				<div
+					style={{
+						width: "100%",
+						height: "800px",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						backgroundColor: "var(--color-gray-100)",
+					}}
+				>
+					<Loading />
+				</div>
 			) : (
 				<Graph
 					data={data}
