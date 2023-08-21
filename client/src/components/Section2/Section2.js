@@ -6,7 +6,10 @@ const Section2 = () => {
 	return (
 		<div className={styles.section2}>
 			<div className={styles.communicationSevice}>
-				<Link to="/graph/meterial" className={styles.navLink}>
+				<Link
+					to="/graph/communication-service"
+					className={styles.navLink}
+				>
 					<div className={styles.back}>
 						<div className={styles.back1} />
 					</div>
@@ -44,10 +47,7 @@ const Section2 = () => {
 			</div>
 
 			<div className={styles.material}>
-				<Link
-					to="/graph/communication-service"
-					className={styles.navLink}
-				>
+				<Link to="/graph/material" className={styles.navLink}>
 					<div className={styles.back}>
 						<div className={styles.back5} />
 					</div>

@@ -1,0 +1,41 @@
+{
+    "nodes": [
+      { "id": "커뮤니케이션", "color": "#FF8E8E", "radius": 130, "opacity": 1 },
+      { "id": "전기통신 서비스", "color": "#908CFF", "radius": 90, "opacity": 1 },
+      { "id": "다각화된 통신서비스", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+      { "id": "대안 통신업체", "color": "#FC0000", "radius": 20, "opacity": 1 },
+      { "id": "통합 전기통신 서비스", "color": "#3737FF", "radius": 20, "opacity": 1 },
+      { "id": "무선통신서비스", "color": "#FF8E8E", "radius": 40, "opacity": 1 },
+      { "id": "무선 전기통신 서비스", "color": "#908CFF", "radius": 20, "opacity": 1 },
+      { "id": "미디어와 엔터테인먼트", "color": "#E4E4FF", "radius": 90, "opacity": 1 },
+      { "id": "광고", "color": "#FC0000", "radius": 40, "opacity": 1 },
+      { "id": "방송과 엔터테인먼트", "color": "#3737FF", "radius": 40, "opacity": 1 },
+      { "id": "방송과 케이블 TV", "color": "#FF8E8E", "radius": 20, "opacity": 1 },
+      { "id": "영화와 엔터테인먼트", "color": "#908CFF", "radius": 20, "opacity": 1 },
+      { "id": "출판", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+      { "id": "게임엔터테인먼트", "color": "#FC0000", "radius": 40, "opacity": 1 },
+      { "id": "홈 엔터테인먼트", "color": "#3737FF", "radius": 20, "opacity": 1 },
+      { "id": "온라인 게임", "color": "#FF8E8E", "radius": 20, "opacity": 1 },
+      { "id": "양방향 미디어와 서비스", "color": "#908CFF", "radius": 40, "opacity": 1 }
+    ],
+    "links": [
+      { "source": "커뮤니케이션", "target": "전기통신 서비스", "value": 3 },
+      { "source": "전기통신 서비스", "target": "다각화된 통신서비스", "value": 3 },
+      { "source": "다각화된 통신서비스", "target": "대안 통신업체", "value": 3 },
+      { "source": "다각화된 통신서비스", "target": "통합 전기통신 서비스", "value": 3 },
+      { "source": "전기통신 서비스", "target": "무선통신서비스", "value": 3 },
+      { "source": "무선통신서비스", "target": "무선 전기통신 서비스", "value": 3 },
+      { "source": "커뮤니케이션", "target": "미디어와 엔터테인먼트", "value": 3 },
+      { "source": "미디어와 엔터테인먼트", "target": "광고", "value": 3 },
+      { "source": "미디어와 엔터테인먼트", "target": "방송과 엔터테인먼트", "value": 3 },
+      { "source": "방송과 엔터테인먼트", "target": "방송과 케이블 TV", "value": 3 },
+      { "source": "방송과 엔터테인먼트", "target": "영화와 엔터테인먼트", "value": 3 },
+      { "source": "미디어와 엔터테인먼트", "target": "출판", "value": 3 },
+      { "source": "미디어와 엔터테인먼트", "target": "게임엔터테인먼트", "value": 3 },
+      { "source": "게임엔터테인먼트", "target": "홈 엔터테인먼트", "value": 3 },
+      { "source": "게임엔터테인먼트", "target": "온라인 게임", "value": 3 },
+      { "source": "미디어와 엔터테인먼트", "target": "양방향 미디어와 서비스", "value": 3 }
+    ]
+}
+
+
