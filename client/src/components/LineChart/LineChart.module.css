@@ -1,0 +1,13 @@
+.lineTitle {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	text-align: center;
+	color: white;
+}
+
+.line {
+	max-width: 1000px;
+	height: 300px;
+	margin: 0 auto;
+}
