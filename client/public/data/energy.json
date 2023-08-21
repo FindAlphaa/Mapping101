@@ -1,71 +1,163 @@
 {
 	"nodes": [
-		{ "id": "에너지", "color": "#3737FF", "radius": 50 },
-		{ "id": "에너지 장비 및 서비스", "color": "#3737FF", "radius": 40 },
-		{ "id": "에너지 장비", "color": "#3737FF", "radius": 30 },
-		{ "id": "석유와 가스", "color": "#3737FF", "radius": 40 },
-		{ "id": "종합 석유 및 가스", "color": "#3737FF", "radius": 30 },
-		{ "id": "석유", "color": "#3737FF", "radius": 20 },
-		{ "id": "가스", "color": "#3737FF", "radius": 20 },
-		{ "id": "석유와 가스 탐사 및 생산", "color": "#3737FF", "radius": 30 },
-		{ "id": "탐사", "color": "#3737FF", "radius": 20 },
-		{ "id": "생산", "color": "#3737FF", "radius": 20 },
+		{ "id": "에너지", "color": "#3737FF", "radius": 130, "opacity": 1 },
+		{
+			"id": "에너지 장비 및 서비스",
+			"color": "#E4E4FF",
+			"radius": 90,
+			"opacity": 1
+		},
+		{ "id": "에너지 장비", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+		{ "id": "석유와 가스", "color": "#3737FF", "radius": 90, "opacity": 1 },
+		{
+			"id": "종합 석유 및 가스",
+			"color": "#FC0000",
+			"radius": 40,
+			"opacity": 1
+		},
+		{ "id": "석유", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+		{ "id": "가스", "color": "#FC0000", "radius": 20, "opacity": 1 },
+		{
+			"id": "석유와 가스 탐사 및 생산",
+			"color": "#908CFF",
+			"radius": 40,
+			"opacity": 1
+		},
+		{ "id": "탐사", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+		{ "id": "생산", "color": "#FC0000", "radius": 20, "opacity": 1 },
 		{
 			"id": "석유와 가스 정제 및 마케팅",
-			"color": "#3737FF",
-			"radius": 30
+			"color": "#908CFF",
+			"radius": 40,
+			"opacity": 1
 		},
-		{ "id": "정제", "color": "#3737FF", "radius": 20 },
-		{ "id": "마케팅", "color": "#3737FF", "radius": 20 },
-		{ "id": "석유와 가스 저장 및 수송", "color": "#3737FF", "radius": 30 },
-		{ "id": "저장", "color": "#3737FF", "radius": 20 },
-		{ "id": "수송", "color": "#3737FF", "radius": 20 },
-		{ "id": "석탄 및 소모 연료", "color": "#3737FF", "radius": 30 },
-		{ "id": "석탄", "color": "#3737FF", "radius": 20 },
-		{ "id": "소모연료", "color": "#3737FF", "radius": 20 }
+		{ "id": "정제", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+		{ "id": "마케팅", "color": "#FC0000", "radius": 20, "opacity": 1 },
+		{
+			"id": "석유와 가스 저장 및 수송",
+			"color": "#908CFF",
+			"radius": 40,
+			"opacity": 1
+		},
+		{ "id": "저장", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+		{ "id": "수송", "color": "#FC0000", "radius": 20, "opacity": 1 },
+		{
+			"id": "석탄 및 소모 연료",
+			"color": "#3737FF",
+			"radius": 40,
+			"opacity": 1
+		},
+		{ "id": "석탄", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+		{ "id": "소모연료", "color": "#FC0000", "radius": 20, "opacity": 1 },
+		{
+			"id": "전기유틸리티",
+			"color": "#3737FF",
+			"radius": 90,
+			"opacity": 1
+		},
+		{ "id": "전기 생산", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+		{ "id": "전기 배급", "color": "#FC0000", "radius": 40, "opacity": 1 },
+		{
+			"id": "가스유틸리티",
+			"color": "#3737FF",
+			"radius": 90,
+			"opacity": 1
+		},
+		{ "id": "가스 제조", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+		{ "id": "가스 배급", "color": "#FC0000", "radius": 40, "opacity": 1 },
+		{
+			"id": "복합유틸리티",
+			"color": "#3737FF",
+			"radius": 90,
+			"opacity": 1
+		},
+		{
+			"id": "복합 공익 사업체",
+			"color": "#E4E4FF",
+			"radius": 40,
+			"opacity": 1
+		},
+		{
+			"id": "독립 전력 생산 및 에너지 거래",
+			"color": "#908CFF",
+			"radius": 100,
+			"opacity": 1
+		},
+		{
+			"id": "독립 전력 생산",
+			"color": "#E4E4FF",
+			"radius": 40,
+			"opacity": 1
+		},
+		{ "id": "에너지 거래", "color": "#FC0000", "radius": 40, "opacity": 1 },
+		{ "id": "유틸리티", "color": "#FC0000", "radius": 40, "opacity": 1 }
 	],
 	"links": [
-		{ "source": "에너지", "target": "에너지 장비 및 서비스", "value": 1 },
+		{ "source": "에너지", "target": "에너지 장비 및 서비스", "value": 3 },
 		{
 			"source": "에너지 장비 및 서비스",
 			"target": "에너지 장비",
-			"value": 1
+			"value": 3
 		},
-		{ "source": "에너지", "target": "석유와 가스", "value": 1 },
-		{ "source": "석유와 가스", "target": "종합 석유 및 가스", "value": 1 },
-		{ "source": "종합 석유 및 가스", "target": "석유", "value": 1 },
-		{ "source": "종합 석유 및 가스", "target": "가스", "value": 1 },
+		{ "source": "에너지", "target": "석유와 가스", "value": 3 },
+		{ "source": "석유와 가스", "target": "종합 석유 및 가스", "value": 3 },
+		{ "source": "종합 석유 및 가스", "target": "석유", "value": 3 },
+		{ "source": "종합 석유 및 가스", "target": "가스", "value": 3 },
 		{
 			"source": "석유와 가스",
 			"target": "석유와 가스 탐사 및 생산",
-			"value": 1
+			"value": 3
 		},
-		{ "source": "석유와 가스 탐사 및 생산", "target": "탐사", "value": 1 },
-		{ "source": "석유와 가스 탐사 및 생산", "target": "생산", "value": 1 },
+		{ "source": "석유와 가스 탐사 및 생산", "target": "탐사", "value": 3 },
+		{ "source": "석유와 가스 탐사 및 생산", "target": "생산", "value": 3 },
 		{
 			"source": "석유와 가스",
 			"target": "석유와 가스 정제 및 마케팅",
-			"value": 1
+			"value": 3
 		},
 		{
 			"source": "석유와 가스 정제 및 마케팅",
 			"target": "정제",
-			"value": 1
+			"value": 3
 		},
 		{
 			"source": "석유와 가스 정제 및 마케팅",
 			"target": "마케팅",
-			"value": 1
+			"value": 3
 		},
 		{
 			"source": "석유와 가스",
 			"target": "석유와 가스 저장 및 수송",
-			"value": 1
+			"value": 3
 		},
-		{ "source": "석유와 가스 저장 및 수송", "target": "저장", "value": 1 },
-		{ "source": "석유와 가스 저장 및 수송", "target": "수송", "value": 1 },
-		{ "source": "석유와 가스", "target": "석탄 및 소모 연료", "value": 1 },
-		{ "source": "석탄 및 소모 연료", "target": "석탄", "value": 1 },
-		{ "source": "석탄 및 소모 연료", "target": "소모연료", "value": 1 }
+		{ "source": "석유와 가스 저장 및 수송", "target": "저장", "value": 3 },
+		{ "source": "석유와 가스 저장 및 수송", "target": "수송", "value": 3 },
+		{ "source": "석유와 가스", "target": "석탄 및 소모 연료", "value": 3 },
+		{ "source": "석탄 및 소모 연료", "target": "석탄", "value": 3 },
+		{ "source": "석탄 및 소모 연료", "target": "소모연료", "value": 3 },
+		{ "source": "에너지", "target": "전기유틸리티", "value": 3 },
+		{ "source": "전기유틸리티", "target": "전기 생산", "value": 3 },
+		{ "source": "전기유틸리티", "target": "전기 배급", "value": 3 },
+		{ "source": "에너지", "target": "가스유틸리티", "value": 3 },
+		{ "source": "가스유틸리티", "target": "가스 제조", "value": 3 },
+		{ "source": "가스유틸리티", "target": "가스 배급", "value": 3 },
+		{ "source": "에너지", "target": "복합유틸리티", "value": 3 },
+		{ "source": "복합유틸리티", "target": "복합 공익 사업체", "value": 3 },
+		{
+			"source": "에너지",
+			"target": "독립 전력 생산 및 에너지 거래",
+			"value": 3
+		},
+		{
+			"source": "독립 전력 생산 및 에너지 거래",
+			"target": "독립 전력 생산",
+			"value": 3
+		},
+		{
+			"source": "독립 전력 생산 및 에너지 거래",
+			"target": "에너지 거래",
+			"value": 3
+		},
+		{ "source": "에너지", "target": "유틸리티", "value": 3 }
 	]
 }

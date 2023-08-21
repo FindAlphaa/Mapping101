@@ -6,7 +6,7 @@ const Section3 = () => {
 	return (
 		<div className={styles.section3}>
 			<div className={styles.utility}>
-				<Link to="/graph/utility" className={styles.navLink}>
+				<Link to="/graph/health-care" className={styles.navLink}>
 					<div className={styles.back}>
 						<div className={styles.back1} />
 					</div>
