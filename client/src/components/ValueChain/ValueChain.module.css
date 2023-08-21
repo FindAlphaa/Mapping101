@@ -82,7 +82,7 @@
   margin-right: 192px;
   height: 430px;
   padding: 5px;
-  overflow: hidden; /* 필요하다면 auto로 변경 */
+  overflow: show; /* 필요하다면 auto로 변경 */
   justify-content: space-between;
 }
 
