@@ -96,11 +96,7 @@ function GraphPage() {
 					} /* Graph 컴포넌트에서 발생한 노드 클릭 이벤트에 대한 콜백 함수 전달 */
 				/>
 			)}
-<<<<<<< HEAD:src/screens/GraphPage.js
-			<InfoBar selectedNodeId={selectedNodeId} />
-=======
 			<InfoBar selectedNodeId={selectedNodeId} ref={infoBarRef} />
->>>>>>> make-backend:client/src/screens/GraphPage.js
 			{/* 키워드 이름을 표시하는 컴포넌트 */}
 			<KeywordSection />
 			{/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시*/}
