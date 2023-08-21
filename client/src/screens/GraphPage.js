@@ -12,49 +12,49 @@ import styles from "../components/Graph/Graph.module.css";
 import { select } from "d3";
 
 function GraphPage() {
-	const { id } = useParams(); // URL에서 id를 받아옴
+  const { id } = useParams(); // URL에서 id를 받아옴
 
-	const [selectedNodeId, setSelectedNodeId] = useState(null); // 선택한 노드의 ID를 저장
+  const [selectedNodeId, setSelectedNodeId] = useState(null); // 선택한 노드의 ID를 저장
 	const [data, setData] = useState();
-	const [loading, setLoading] = useState(true); // Initializing the loading state
+  const [loading, setLoading] = useState(true); // Initializing the loading state
 
 	const infoBarRef = useRef(null);
 
 	const itemsMap = {
-		"consumer-goods": {
-			itemName: "경기 관련 소비재",
-			itemDescription: "consumer goods related to the economy",
-		},
-		economy: {
-			itemName: "금융",
-			itemDescription: "Economy",
-		},
-		"industrial-goods": {
-			itemName: "산업재",
-			itemDescription: "Industrial goods",
-		},
-		meterial: {
-			itemName: "소재",
-			itemDescription: "Material",
-		},
-		it: { itemName: "IT", itemDescription: "Internet Technology" },
-		"communication-service": {
-			itemName: "	커뮤니케이션 서비스",
-			itemDescription: "Communication Services",
-		},
-		"essential-goods": {
-			itemName: "	필수 소비재",
-			itemDescription: "Essential Consumer Goods",
-		},
-		energy: {
-			itemName: "에너지",
-			itemDescription: "Energy",
-		},
-		utility: {
-			itemName: "유틸리티",
-			itemDescription: "Utility",
-		},
-		// ... 기타 아이템들
+    "consumer-goods": {
+		itemName: "경기 관련 소비재",
+		itemDescription: "consumer goods related to the economy",
+    },
+    economy: {
+		itemName: "금융",
+		itemDescription: "Economy",
+    },
+    "industrial-goods": {
+		itemName: "산업재",
+		itemDescription: "Industrial goods",
+    },
+    meterial: {
+		itemName: "소재",
+		itemDescription: "Material",
+    },
+    it: { itemName: "IT", itemDescription: "Internet Technology" },
+    "communication-service": {
+		itemName: "	커뮤니케이션 서비스",
+		itemDescription: "Communication Services",
+    },
+    "essential-goods": {
+		itemName: "	필수 소비재",
+		itemDescription: "Essential Consumer Goods",
+    },
+    energy: {
+		itemName: "에너지",
+		itemDescription: "Energy",
+    },
+    utility: {
+		itemName: "유틸리티",
+		itemDescription: "Utility",
+    },
+    // ... 기타 아이템들
 	};
 	const { itemName, itemDescription } = itemsMap[id] || {};
 
@@ -62,20 +62,20 @@ function GraphPage() {
 		const fetchData = async () => {
 			const response = await axios.get(`/data/${id}.json`);
 			setData(response.data);
-			setLoading(false); // 데이터 로딩 완료
-		};
+      	setLoading(false); // 데이터 로딩 완료
+    };
 
-		fetchData();
-		window.scroll({
-			top: 0,
-			left: 0,
-			behavior: "smooth",
-		});
-	}, [id]); // id가 변경될 때마다 fetchData 함수 호출 (data json 파일 받기)
+    fetchData();
+    window.scroll({
+		top: 0,
+		left: 0,
+		behavior: "smooth",
+    });
+  }, [id]); // id가 변경될 때마다 fetchData 함수 호출 (data json 파일 받기)
 
-	// Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
+  // Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
 	const handleNodeClick = (nodeId) => {
-		setSelectedNodeId(nodeId); // 선택한 노드의 ID 설정
+    	setSelectedNodeId(nodeId); // 선택한 노드의 ID 설정
 		if (infoBarRef.current) {
 			infoBarRef.current.scrollIntoView({ behavior: "smooth" });
 		}
