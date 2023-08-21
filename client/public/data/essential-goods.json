@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    { "id": "필수소비재", "color": "#FF8E8E", "radius": 130, "opacity": 1 },
+    { "id": "식품과 기본 식료품 소매", "color": "#908CFF", "radius": 90, "opacity": 1 },
+    { "id": "약품 소매", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+    { "id": "식품 도매", "color": "#FC0000", "radius": 40, "opacity": 1 },
+    { "id": "식품 소매", "color": "#3737FF", "radius": 40, "opacity": 1 },
+    { "id": "하이퍼마켓과 대형 쇼핑센터", "color": "#FF8E8E", "radius": 40, "opacity": 1 },
+    { "id": "음식료품", "color": "#908CFF", "radius": 90, "opacity": 1 },
+    { "id": "음료", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+    { "id": "맥주 양조업자", "color": "#FC0000", "radius": 20, "opacity": 1 },
+    { "id": "증류업체와 양조업체", "color": "#3737FF", "radius": 20, "opacity": 1 },
+    { "id": "청량 음료", "color": "#FF8E8E", "radius": 20, "opacity": 1 },
+    { "id": "식품", "color": "#908CFF", "radius": 40, "opacity": 1 },
+    { "id": "농산물", "color": "#FC0000", "radius": 20, "opacity": 1 },
+    { "id": "포장 식품", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+    { "id": "고기", "color": "#3737FF", "radius": 20, "opacity": 1 },
+    { "id": "가정용품과 개인용품", "color": "#FF8E8E", "radius": 90, "opacity": 1 },
+    { "id": "가정용품", "color": "#E4E4FF", "radius": 40, "opacity": 1 },
+    { "id": "개인용품", "color": "#FC0000", "radius": 40, "opacity": 1 },
+    { "id": "담배", "color": "#908CFF", "radius": 20, "opacity": 1 }
+  ],
+  "links": [
+      { "source": "필수소비재", "target": "식품과 기본 식료품 소매", "value": 3 },
+      { "source": "식품과 기본 식료품 소매", "target": "약품 소매", "value": 3 },
+      { "source": "식품과 기본 식료품 소매", "target": "식품 도매", "value": 3 },
+      { "source": "식품과 기본 식료품 소매", "target": "식품 소매", "value": 3 },
+      { "source": "식품과 기본 식료품 소매", "target": "하이퍼마켓과 대형 쇼핑센터", "value": 3 },
+      { "source": "필수소비재", "target": "음식료품", "value": 3 },
+      { "source": "음식료품", "target": "음료", "value": 3 },
+      { "source": "음료", "target": "맥주 양조업자", "value": 3 },
+      { "source": "음료", "target": "증류업체와 양조업체", "value": 3 },
+      { "source": "음료", "target": "청량 음료", "value": 3 },
+      { "source": "필수소비재", "target": "식품", "value": 3 },
+      { "source": "식품", "target": "농산물", "value": 3 },
+      { "source": "식품", "target": "포장 식품", "value": 3 },
+      { "source": "식품", "target": "고기", "value": 3 },
+      { "source": "필수소비재", "target": "가정용품과 개인용품", "value": 3 },
+      { "source": "가정용품과 개인용품", "target": "가정용품", "value": 3 },
+      { "source": "가정용품과 개인용품", "target": "개인용품", "value": 3 },
+      { "source": "개인용품", "target": "담배", "value": 3 }
+  ]
+}
+
+  

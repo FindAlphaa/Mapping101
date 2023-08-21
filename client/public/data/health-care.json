@@ -1,0 +1,35 @@
+{
+    "nodes": [
+        { "id": "건강관리", "color": "#908CFF", "radius": 130, "opacity": 3 },
+        { "id": "건강관리와 서비스", "color": "#FFFFFF", "radius": 90, "opacity": 3 },
+        { "id": "건강관리 장비와 용품", "color": "#FF8E8E", "radius": 40, "opacity": 1 },
+        { "id": "건강관리 장비", "color": "#908CFF", "radius": 20, "opacity": 1 },
+        { "id": "건강관리 용품", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+        { "id": "건강관리 업체 및 서비스", "color": "#FC0000", "radius": 40, "opacity": 1 },
+        { "id": "건강관리 판매업체", "color": "#FFDEC1", "radius": 20, "opacity": 1 },
+        { "id": "건강관리 서비스", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
+        { "id": "건강관리 시설", "color": "#3737FF", "radius": 20, "opacity": 1 },
+        { "id": "헬스케어 관리", "color": "#FF8E8E", "radius": 20, "opacity": 1 },
+        { "id": "건강관리 기술", "color": "#FC0000", "radius": 40, "opacity": 1 },
+        { "id": "제약과 생물공학", "color": "#908CFF", "radius": 90, "opacity": 1 },
+        { "id": "생물공학", "color": "#FFDEC1", "radius": 40, "opacity": 1 },
+        { "id": "제약", "color": "#FFFFFF", "radius": 40, "opacity": 1 },
+        { "id": "생명과학 도구 및 서비스", "color": "#FC0000", "radius": 40, "opacity": 1 }
+    ],
+    "links": [
+    { "source": "건강관리", "target": "건강관리와 서비스", "value": 3 },
+    { "source": "건강관리와 서비스", "target": "건강관리 장비와 용품", "value": 3 },
+    { "source": "건강관리 장비와 용품", "target": "건강관리 장비", "value": 3 },
+    { "source": "건강관리 장비와 용품", "target": "건강관리 용품", "value": 3 },
+    { "source": "건강관리와 서비스", "target": "건강관리 업체 및 서비스", "value": 3 },
+    { "source": "건강관리 업체 및 서비스", "target": "건강관리 판매업체", "value": 3 },
+    { "source": "건강관리 업체 및 서비스", "target": "건강관리 서비스", "value": 3 },
+    { "source": "건강관리 업체 및 서비스", "target": "건강관리 시설", "value": 3 },
+    { "source": "건강관리 업체 및 서비스", "target": "헬스케어 관리", "value": 3 },
+    { "source": "건강관리와 서비스", "target": "건강관리 기술", "value": 3 },
+    { "source": "건강관리", "target": "제약과 생물공학", "value": 3 },
+    { "source": "제약과 생물공학", "target": "생물공학", "value": 3 },
+    { "source": "제약과 생물공학", "target": "제약", "value": 3 },
+    { "source": "제약과 생물공학", "target": "생명과학 도구 및 서비스", "value": 3 }
+    ]
+}
