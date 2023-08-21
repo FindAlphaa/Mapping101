@@ -8,6 +8,7 @@ import styles from "./Graph.module.css";
 function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	const [nodes, setNodes] = useState([...data.nodes]);
 	const [links, setLinks] = useState([...data.links]);
+	const zoomRef = useRef(null);
 
 	const [hoveredNode, setHoveredNode] = useState(null); // 마우스 오버한 노드의 id를 저장
 
@@ -114,14 +115,16 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	return (
 		<div className={styles.graph}>
 			<svg
-				ref={svgRef} // SVG 요소에 참조 연결
+				ref={svgRef}
 				width={width}
 				height={height}
 				viewBox={[-width / 2, -height / 2, width, height]}
 				style={{ maxWidth: "100%", height: "auto" }}
 			>
-				<g>
-					{/* 모든 요소를 포함하는 g 요소 추가 */}
+				<g ref={zoomRef}>
+					{" "}
+					{/* This group is for zoomable content */}
+					{/* Your links and nodes here */}
 					<g className="links">
 						{links.map((link, index) => (
 							<Link key={index} link={link} />
@@ -140,6 +143,49 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 						))}
 					</g>
 				</g>
+
+				{/* Fixed position legend */}
+				<foreignObject x="-900" y="-450" width="200" height="400">
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<svg width="200" height="400">
+							<g className="legend">
+								{[
+									{ color: "#FC0000", label: "부정" },
+									{ color: "#FF8E8E" },
+									{ color: "#FFDEC1" },
+									{ color: "#FFFFFF" },
+									{ color: "#E4E4FF" },
+									{ color: "#908CFF" },
+									{ color: "#3737FF", label: "긍정" },
+								].map((item, index) => (
+									<g
+										key={index}
+										transform={`translate(0, ${
+											index * 50
+										})`}
+									>
+										<rect
+											x={0}
+											y={0}
+											width={30}
+											height={30}
+											fill={item.color}
+										/>
+										<text
+											x={40}
+											y={25}
+											fontSize="20"
+											fontWeight="600"
+											fill="white"
+										>
+											{item.label || ""}
+										</text>
+									</g>
+								))}
+							</g>
+						</svg>
+					</div>
+				</foreignObject>
 			</svg>
 		</div>
 	);
