@@ -12,6 +12,8 @@ import {
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 
+import Loading from "../Loading/Loading";
+
 import styles from "./LineChart.module.css";
 
 ChartJS.register(
@@ -36,7 +38,7 @@ const LineChart = ({ selectedNodeId }) => {
 				);
 
 				setData(response.data);
-				setLoading(false); // 데이터 로딩 완료
+				setLoading(true); // 데이터 로딩 완료
 			} catch (error) {
 				console.log(error);
 				setLoading(true);
@@ -73,17 +75,17 @@ const LineChart = ({ selectedNodeId }) => {
 	}
 
 	return (
-		<>
+		<div className={styles.lineWrapper}>
 			{loading ? (
-				<div>Loading...</div>
+				<Loading />
 			) : (
 				//  로딩 스피너 추가
-				<div className={styles.lineWrapper}>
+				<>
 					<h2 className={styles.lineTitle}>{selectedNodeId}</h2>
 					<Line data={graphData} className={styles.line} />
-				</div>
+				</>
 			)}
-		</>
+		</div>
 	);
 };
 
