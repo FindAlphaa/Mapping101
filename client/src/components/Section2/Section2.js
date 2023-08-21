@@ -3,7 +3,7 @@ import styles from "./Section2.module.css";
 import { Link } from "react-router-dom";
 
 const Section2 = () => {
-return (
+  return (
     <div className={styles.section2}>
       <div className={styles.communicationSevice}>
         <Link to="/graph/meterial" className={styles.navLink}>
@@ -59,5 +59,5 @@ return (
       </div>
     </div>
   );
-
+};
 export default Section2;
