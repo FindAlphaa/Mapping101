@@ -38,7 +38,7 @@ const LineChart = ({ selectedNodeId }) => {
 				);
 
 				setData(response.data);
-				setLoading(true); // 데이터 로딩 완료
+				setLoading(false); // 데이터 로딩 완료
 			} catch (error) {
 				console.log(error);
 				setLoading(true);
