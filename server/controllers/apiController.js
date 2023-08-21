@@ -1,4 +1,5 @@
 const Graph = require("../models/Graph");
+const formattedData = require("./formatted_data.json");
 
 exports.getGraph = async (req, res) => {
 	const { id } = req.params;
@@ -22,18 +23,15 @@ exports.getGraph = async (req, res) => {
 };
 
 exports.postGraph = async (req, res) => {
-	let { nodeId, data } = req.body;
-	data = JSON.parse(data);
-
-	console.log(data);
-
 	try {
-		const graph = await Graph.create({ nodeId, data });
-
-		return res.status(201).json({ success: true, data: graph });
+		await Graph.insertMany(formattedData);
+		return res
+			.status(200)
+			.json({ success: true, message: "Data saved successfully!" });
 	} catch (error) {
-		console.log(error);
-
-		return res.status(400).json({ success: false });
+		console.error("Error saving data:", error);
+		return res
+			.status(500)
+			.json({ success: false, message: "Failed to save data" });
 	}
 };

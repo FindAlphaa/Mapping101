@@ -4,9 +4,9 @@
 		{ "id": "반도체", "color": "#FFFFFF", "radius": 90, "opacity": 1 },
 		{ "id": "반도체 장비", "color": "#FF8E8E", "radius": 40, "opacity": 1 },
 		{ "id": "설비", "color": "#FF8E8E", "radius": 20, "opacity": 1 },
-		{ "id": "검사장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
-		{ "id": "후공정장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
-		{ "id": "전공정장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
+		{ "id": "검사 장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
+		{ "id": "후공정 장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
+		{ "id": "전공정 장비", "color": "#FFFFFF", "radius": 20, "opacity": 1 },
 		{ "id": "반도체 소재", "color": "#908CFF", "radius": 40, "opacity": 1 },
 		{ "id": "반도체 제조", "color": "#FFFFFF", "radius": 40, "opacity": 1 },
 		{ "id": "후공정", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
@@ -66,7 +66,7 @@
 		{ "id": "앱", "color": "#E4E4FF", "radius": 20, "opacity": 1 },
 		{ "id": "프로그램", "color": "#908CFF", "radius": 20, "opacity": 1 },
 		{
-			"id": "전기와전자제품",
+			"id": "전기와 전자제품",
 			"color": "#908CFF",
 			"radius": 90,
 			"opacity": 1
@@ -260,9 +260,9 @@
 		{ "source": "IT", "target": "반도체", "value": 3 },
 		{ "source": "반도체", "target": "반도체 장비", "value": 3 },
 		{ "source": "반도체 장비", "target": "설비", "value": 3 },
-		{ "source": "반도체 장비", "target": "검사장비", "value": 3 },
-		{ "source": "반도체 장비", "target": "후공정장비", "value": 3 },
-		{ "source": "반도체 장비", "target": "전공정장비", "value": 3 },
+		{ "source": "반도체 장비", "target": "검사 장비", "value": 3 },
+		{ "source": "반도체 장비", "target": "후공정 장비", "value": 3 },
+		{ "source": "반도체 장비", "target": "전공정 장비", "value": 3 },
 		{ "source": "반도체", "target": "반도체 소재", "value": 3 },
 		{ "source": "반도체", "target": "반도체 제조", "value": 3 },
 		{ "source": "반도체 제조", "target": "후공정", "value": 3 },
@@ -296,9 +296,9 @@
 		{ "source": "IT 서비스", "target": "기타 소프트웨어", "value": 3 },
 		{ "source": "기타 소프트웨어", "target": "앱", "value": 3 },
 		{ "source": "기타 소프트웨어", "target": "프로그램", "value": 3 },
-		{ "source": "IT", "target": "전기와전자제품", "value": 3 },
+		{ "source": "IT", "target": "전기와 전자제품", "value": 3 },
 		{
-			"source": "전기와전자제품",
+			"source": "전기와 전자제품",
 			"target": "스마트폰 및 태블릿",
 			"value": 3
 		},
@@ -309,17 +309,17 @@
 			"value": 3
 		},
 		{
-			"source": "전기와전자제품",
+			"source": "전기와 전자제품",
 			"target": "노트북 및 컴퓨터",
 			"value": 3
 		},
 		{
-			"source": "전기와전자제품",
+			"source": "전기와 전자제품",
 			"target": "오디오 및 비디오 장비",
 			"value": 3
 		},
 		{
-			"source": "전기와전자제품",
+			"source": "전기와 전자제품",
 			"target": "카메라 및 사진장비",
 			"value": 3
 		},
@@ -331,7 +331,7 @@
 		},
 		{ "source": "카메라 및 사진장비", "target": "카메라 렌즈", "value": 3 },
 		{ "source": "카메라 및 사진장비", "target": "액션 카메라", "value": 3 },
-		{ "source": "전기와전자제품", "target": "조명 및 전등", "value": 3 },
+		{ "source": "전기와 전자제품", "target": "조명 및 전등", "value": 3 },
 		{ "source": "조명 및 전등", "target": "스위치 및 플러그", "value": 3 },
 		{ "source": "조명 및 전등", "target": "배터리 및 충전기", "value": 3 },
 		{ "source": "조명 및 전등", "target": "전기선 및 케이블", "value": 3 },

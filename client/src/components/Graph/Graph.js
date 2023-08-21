@@ -19,6 +19,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 	};
 
 	const handleNodeHover = (node) => {
+		// Node 와 Link 강조 기능.
 		// 1. Reset opacity of all nodes and links
 		nodes.forEach((n) => (n.opacity = 1));
 		links.forEach((link) => (link.opacity = 1));

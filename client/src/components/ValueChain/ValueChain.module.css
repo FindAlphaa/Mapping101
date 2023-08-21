@@ -1,100 +1,100 @@
 .keywordItem {
-  width: calc(33.33% - 10px); /* 화면의 1/3 너비에서 여백을 뺀 값 */
-  height: 45px; /* 원하는 사각형의 세로 크기를 설정합니다. */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px; /* 주변 여백을 설정 */
-  background-color: #484343;
-  border: 1px solid #232323;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+	width: calc(33.33% - 10px); /* 화면의 1/3 너비에서 여백을 뺀 값 */
+	height: 45px; /* 원하는 사각형의 세로 크기를 설정합니다. */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px; /* 주변 여백을 설정 */
+	background-color: #484343;
+	border: 1px solid #232323;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .keywordList {
-  display: flex;
-  flex-wrap: wrap; /* 아이템들이 한 줄을 넘어갈 때 아래로 감 */
-  justify-content: flex-start; /* 시작 부분부터 아이템을 배치 */
+	display: flex;
+	flex-wrap: wrap; /* 아이템들이 한 줄을 넘어갈 때 아래로 감 */
+	justify-content: flex-start; /* 시작 부분부터 아이템을 배치 */
 }
 .companyList,
 .valueChain {
-  position: absolute;
-  top: 5px;
-  border-radius: var(--br-5xs);
-  overflow: auto;
+	position: absolute;
+	top: 5px;
+	border-radius: var(--br-5xs);
+	overflow: auto;
 }
 .companyList {
-  left: 835px;
-  background-color: #3e3e3e;
-  width: 575px;
-  height: 420px;
-  flex-direction: column;
-  padding: 5px;
-  box-sizing: border-box;
-  align-items: flex-start;
+	left: 835px;
+	background-color: #3e3e3e;
+	width: 575px;
+	height: 420px;
+	flex-direction: column;
+	padding: 5px;
+	box-sizing: border-box;
+	align-items: flex-start;
 }
 .valueChain {
-  background-color: #3e3e3e;
-  width: 820px;
-  height: 170px;
-  padding: 10px;
+	background-color: #3e3e3e;
+	width: 820px;
+	height: 170px;
+	padding: 10px;
 }
 
 .valueChain2 {
-  background-color: #3e3e3e;
-  width: 820px;
-  height: 170px;
-  padding: 10px;
-  margin-top: 5px; /* 원하는 거리만큼 조절하세요. */
+	background-color: #3e3e3e;
+	width: 820px;
+	height: 170px;
+	padding: 10px;
+	margin-top: 5px; /* 원하는 거리만큼 조절하세요. */
 }
 
 .titleBox {
-  background-color: #2c2c2c;
-  width: 820px;
-  height: 70px;
-  padding: 0px;
-  margin-top: 175px; /* 원하는 거리만큼 조절하세요. */
+	background-color: #2c2c2c;
+	width: 820px;
+	height: 70px;
+	padding: 0px;
+	margin-top: 175px; /* 원하는 거리만큼 조절하세요. */
 }
 
 .keywords {
-  position: absolute;
-  top: 190px;
-  left: -10px;
-  font-size: 30px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins";
-  width: 250px;
-  color: var(--color-deepskyblue);
+	position: absolute;
+	top: 190px;
+	left: -10px;
+	font-size: 30px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Poppins";
+	width: 250px;
+	color: var(--color-deepskyblue);
 }
 
 .keyWordChain {
-  background-color: #ffffff;
-  width: 840px;
-  height: 170px;
-  padding: 10px;
+	background-color: #ffffff;
+	width: 840px;
+	height: 170px;
+	padding: 10px;
 }
 
 .valueChainVisual {
-  position: relative;
-  background-color: #2c2c2c;
-  margin-left: 192px;
-  margin-right: 192px;
-  height: 430px;
-  padding: 5px;
-  overflow: hidden; /* 필요하다면 auto로 변경 */
-  justify-content: space-between;
+	position: relative;
+	background-color: #2c2c2c;
+	margin-left: 192px;
+	margin-right: 192px;
+	height: 430px;
+	padding: 5px;
+	overflow: show; /* 필요하다면 auto로 변경 */
+	justify-content: space-between;
 }
 
 .valueChainsection {
-  position: relative;
-  background-color: #2c2c2c;
-  width: 100%;
-  height: 430px;
-  overflow: hidden;
-  text-align: left;
-  font-size: var(--font-size-2xs);
-  color: var(--color-white);
-  font-family: var(--font-noto-sans);
-  box-sizing: border-box; /* padding을 포함한 크기로 설정 */
+	position: relative;
+	background-color: #2c2c2c;
+	width: 100%;
+	height: 430px;
+	overflow: hidden;
+	text-align: left;
+	font-size: var(--font-size-2xs);
+	color: var(--color-white);
+	font-family: var(--font-noto-sans);
+	box-sizing: border-box; /* padding을 포함한 크기로 설정 */
 }
