@@ -51,7 +51,7 @@ const Section3 = () => {
             <div className={styles.div}>필수 소비재</div>
           </div>
           <img
-            className={styles.vectorIcon1}
+            className={styles.vectorIcon}
             alt="Essential Consumer Goods Icon"
             src="coin-stackessentialgoods.svg"
           />
