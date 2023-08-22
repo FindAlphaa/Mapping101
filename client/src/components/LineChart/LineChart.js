@@ -48,7 +48,6 @@ const LineChart = ({ selectedNodeId }) => {
     fetchData();
 
     console.log("selectedNodeId", selectedNodeId);
-    console.log(data);
   }, [selectedNodeId]);
 
   let graphData = {};

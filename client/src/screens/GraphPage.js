@@ -78,6 +78,7 @@ function GraphPage() {
   // Graph 컴포넌트에서 노드를 클릭했을 때 실행될 함수
   const handleNodeClick = (nodeId) => {
     setSelectedNodeId(nodeId); // 선택한 노드의 ID 설정
+
     if (infoBarRef.current) {
       infoBarRef.current.scrollIntoView({ behavior: "smooth" });
     }
