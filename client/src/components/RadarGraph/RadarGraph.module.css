@@ -1,0 +1,20 @@
+.radarTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.radar {
+  max-width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.radarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

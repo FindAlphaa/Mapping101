@@ -24,7 +24,7 @@
 }
 
 .radarGraph {
-  background-color: #ffffff;
+  background-color: var(--color-gray-200);
   width: 750px;
   height: 400px;
   flex-direction: column;

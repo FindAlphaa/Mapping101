@@ -1,6 +1,6 @@
 import React from "react";
 import LineChart from "../LineChart/LineChart";
-
+import RadarGraph from "../RadarGraph/RadarGraph";
 import styles from "./InfoBar.module.css";
 
 const InfoBar = React.forwardRef((props, ref) => {
@@ -14,6 +14,7 @@ const InfoBar = React.forwardRef((props, ref) => {
         </div>
         <div className={styles.radarGraph}>
           {/* 추가 섹션의 내용을 여기에 넣으세요 */}
+          <RadarGraph selectedNodeId={props.selectedNodeId} />
         </div>
       </div>
     </div>
