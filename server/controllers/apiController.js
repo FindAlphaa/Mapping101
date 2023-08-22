@@ -1,10 +1,10 @@
 const Graph = require("../models/Graph");
 const Structure = require("../models/Structure");
-const Company = require("../models/Company");
-const CompanyTree = require("../models/CompanyTree");
+
+const TreeNode = require("../models/TreeNode");
 
 const formattedData = require("./formatted_data.json");
-const itCompany = require("./tree_node.json");
+// const itCompany = require("./tree_node.json");
 
 exports.getGraph = async (req, res) => {
 	const { id } = req.params;
@@ -91,88 +91,90 @@ exports.postNetworkGraph = async (req, res) => {
 	}
 };
 
-const saveCompany = async (companyData) => {
-	const company = new Company(companyData);
-	await company.save();
-	return company._id;
-};
-
-const saveCompanyTree = async (nodeData) => {
-	if (!nodeData.children) {
-		// This is a company
-		return await saveCompany(nodeData);
-	}
-
-	const treeNode = new CompanyTree({
-		nodeName: nodeData.name,
-		companyChildren: [],
-		treeChildren: [],
+async function saveNodeRecursive(nodeData) {
+	let node = new TreeNode({
+		name: nodeData.name,
+		description: nodeData.description,
+		size: nodeData.size,
+		color: nodeData.color,
 	});
 
-	for (const child of nodeData.children) {
-		if (child.children) {
-			// This is a tree node
-			const treeChildId = await saveCompanyTree(child);
-			treeNode.treeChildren.push(treeChildId);
-		} else {
-			// This is a company
-			const companyChildId = await saveCompany(child);
-			treeNode.companyChildren.push(companyChildId);
+	if (nodeData.children && nodeData.children.length > 0) {
+		for (let child of nodeData.children) {
+			let childNode = await saveNodeRecursive(child);
+			node.children.push(childNode._id);
 		}
 	}
 
-	await treeNode.save();
-	return treeNode._id;
-};
+	await node.save();
+	return node;
+}
 
-exports.postCompany = async (req, res) => {
+// 컨트롤러 함수
+exports.saveTreeData = async (req, res) => {
 	try {
-		// Assuming you are using a middleware like express.json()
-		await saveCompanyTree(itCompany);
-		res.status(200).send({ message: "Data saved successfully!" });
+		const treeData = require("./tree_node.json"); // tree_node.json 파일의 경로를 적절하게 수정해주세요.
+		await saveNodeRecursive(treeData);
+		res.status(200).send({ message: "Tree data successfully saved!" });
 	} catch (error) {
 		res.status(500).send({
-			message: "Error saving data!",
+			message: "Error saving tree data",
 			error: error.message,
 		});
 	}
 };
-
-const deepPopulate = async (document) => {
-	if (!document) return null;
-
-	// Populate companyChildren
-	await document.populate("companyChildren").execPopulate();
-
-	// Populate treeChildren and their companyChildren
-	const populatedTreeChildren = await CompanyTree.populate(
-		document.treeChildren,
-		{
-			path: "companyChildren",
-			model: "Company",
+// 재귀적으로 children을 populate하는 함수
+async function populateChildrenRecursive(node) {
+	if (node.children && node.children.length > 0) {
+		await TreeNode.populate(node, { path: "children" });
+		for (let child of node.children) {
+			await populateChildrenRecursive(child);
 		}
-	);
-
-	document.treeChildren = populatedTreeChildren;
-
-	for (const child of document.treeChildren) {
-		await deepPopulate(child);
 	}
-};
+}
 
 exports.getCompanyList = async (req, res) => {
 	try {
-		const { id } = req.params; // Assuming you are getting the nodeName from the route parameter
-		const companyList = await CompanyTree.find({ nodeName: id });
+		const { id } = req.params;
+		let node = await TreeNode.findOne({ name: id });
 
-		for (const company of companyList) {
-			await deepPopulate(company);
+		if (!node) {
+			return res.status(404).send({ message: "Node not found" });
 		}
 
-		res.status(200).send(companyList);
+		await populateChildrenRecursive(node);
+
+		let nodeObject = node.toObject();
+
+		// Recursive function to remove _id and __v from the object and its children
+		function cleanNode(nodeObj) {
+			delete nodeObj._id;
+			delete nodeObj.__v;
+			if (nodeObj.children) {
+				for (let child of nodeObj.children) {
+					cleanNode(child);
+				}
+			}
+		}
+
+		cleanNode(nodeObject);
+
+		// Recursive function to remove children from leaf nodes
+		function removeLeafChildren(nodeObj) {
+			if (nodeObj.children && nodeObj.children.length === 0) {
+				delete nodeObj.children;
+			} else if (nodeObj.children) {
+				for (let child of nodeObj.children) {
+					removeLeafChildren(child);
+				}
+			}
+		}
+		removeLeafChildren(nodeObject);
+
+		res.status(200).json(nodeObject);
 	} catch (error) {
 		res.status(500).send({
-			message: "Error fetching data!",
+			message: "Error retrieving node",
 			error: error.message,
 		});
 	}
