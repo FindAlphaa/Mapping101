@@ -5,7 +5,7 @@ const {
 	postGraph,
 	getNetworkGraph,
 	postNetworkGraph,
-	postCompany,
+	saveTreeData,
 	getCompanyList,
 } = require("../controllers/apiController");
 
@@ -18,7 +18,7 @@ apiRouter
 	.get(getNetworkGraph)
 	.post(postNetworkGraph);
 
-apiRouter.route("/company/register").post(postCompany);
+apiRouter.route("/company/register").post(saveTreeData);
 
 apiRouter.route("/company/:id").get(getCompanyList);
 
