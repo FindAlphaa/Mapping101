@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Loading from "../Loading/Loading";
 import { Radar } from "react-chartjs-2";
 import axios from "axios";
+import Loading from "../Loading/Loading";
 import styles from "./RadarGraph.module.css";
+import { Chart, RadialLinearScale } from "chart.js";
+
+Chart.register(RadialLinearScale);
 
 const RadarGraph = ({ selectedNodeId }) => {
   const [data, setData] = useState(null);
@@ -51,7 +54,6 @@ const RadarGraph = ({ selectedNodeId }) => {
 
   return (
     <div className={styles.radarWrapper}>
-      <h1 className={styles.radarTitle}>Radar Graph from JSON File</h1>
       <Radar data={data} className={styles.radarGraph} />
     </div>
   );
