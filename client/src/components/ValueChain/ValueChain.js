@@ -38,9 +38,9 @@ function ValueChain({ selectedNodeId, id }) {
       <div className={styles.valueChainVisual}>
         {/* company list section */}
         <div className={styles.companyList}>
-          {companyData && companyData[selectedNodeId] && (
+          {SameSectorKeyword && SameSectorKeyword[selectedNodeId] && (
             <ul className={styles.keywordList}>
-              {companyData[selectedNodeId].map((keyword, kIndex) => (
+              {SameSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
                 <li key={kIndex} className={styles.keywordItem}>
                   {keyword}
                 </li>
@@ -54,24 +54,6 @@ function ValueChain({ selectedNodeId, id }) {
           {OtherSectorKeyword && OtherSectorKeyword[selectedNodeId] && (
             <ul className={styles.keywordList}>
               {OtherSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
-                <li key={kIndex} className={styles.keywordItem}>
-                  {keyword}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {/* Title and other sections */}
-        <div className={styles.titleBox}>
-          <div className={styles.keywords}>Same Sector</div>
-        </div>
-
-        <div className={styles.valueChain2}>
-          {/* Same Sector data section */}
-          {SameSectorKeyword && SameSectorKeyword[selectedNodeId] && (
-            <ul className={styles.keywordList}>
-              {SameSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
                 <li key={kIndex} className={styles.keywordItem}>
                   {keyword}
                 </li>

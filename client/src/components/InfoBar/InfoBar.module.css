@@ -1,11 +1,45 @@
+.container {
+  position: relative;
+  background-color: #3e3e3e;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-2xs);
+  color: var(--color-white);
+  font-family: var(--font-noto-sans);
+  box-sizing: border-box; /* padding을 포함한 크기로 설정 */
+}
+
 .infoBar {
-	padding: 15px 200px;
-	background-color: var(--color-gray-200);
-	width: 100%;
-	height: 400px;
-	box-sizing: border-box;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  background-color: var(--color-gray-200);
+  width: 750px;
+  padding: 0 100px;
+  height: 400px;
+  box-sizing: border-box;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radarGraph {
+  background-color: var(--color-gray-200);
+  width: 750px;
+  height: 400px;
+  flex-direction: column;
+  padding: 5px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+.graphVisual {
+  display: flex; /* Flexbox를 활성화합니다. */
+  flex-direction: row; /* 수평 정렬 */
+  background-color: #3e3e3e;
+  margin-left: 195px;
+  margin-right: 210px;
+  height: 400px;
+  overflow: visible; /* 필요하다면 auto로 변경 */
+  justify-content: space-between;
 }

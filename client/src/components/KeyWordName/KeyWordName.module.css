@@ -2,7 +2,7 @@
 .keywords {
   position: absolute;
   top: 20px;
-  left: 200px;
+  left: 210px;
   font-size: 30px;
   font-weight: 500;
   display: flex;
@@ -13,7 +13,7 @@
   color: var(--color-deepskyblue);
 }
 .companyList {
-  left: 1025px;
+  left: 950px;
   width: 220px;
   height: 45px;
   font-family: "Poppins";
