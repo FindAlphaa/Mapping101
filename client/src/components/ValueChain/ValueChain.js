@@ -35,33 +35,33 @@ function ValueChain({ selectedNodeId, id }) {
 
   return (
     <div className={styles.valueChainsection}>
-      {/* Same Sector data Section */}
-      <div className={styles.companyList}>
-        {SameSectorKeyword && SameSectorKeyword[selectedNodeId] && (
-          <ul className={styles.keywordList}>
-            {SameSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
-              <li key={kIndex} className={styles.keywordItem}>
-                {keyword}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      <div className={styles.valueChainVisual}>
+        {/* company list section */}
+        <div className={styles.companyList}>
+          {SameSectorKeyword && SameSectorKeyword[selectedNodeId] && (
+            <ul className={styles.keywordList}>
+              {SameSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
+                <li key={kIndex} className={styles.keywordItem}>
+                  {keyword}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-      {/* Other Sector data section */}
-      <div className={styles.valueChain}>
-        {OtherSectorKeyword && OtherSectorKeyword[selectedNodeId] && (
-          <ul className={styles.keywordList}>
-            {OtherSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
-              <li key={kIndex} className={styles.keywordItem}>
-                {keyword}
-              </li>
-            ))}
-          </ul>
-        )}
+        {/* Other Sector data section */}
+        <div className={styles.valueChain}>
+          {OtherSectorKeyword && OtherSectorKeyword[selectedNodeId] && (
+            <ul className={styles.keywordList}>
+              {OtherSectorKeyword[selectedNodeId].map((keyword, kIndex) => (
+                <li key={kIndex} className={styles.keywordItem}>
+                  {keyword}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-
-      <div className={styles.valueChain2}>{/* Same Sector data section */}</div>
     </div>
   );
 }

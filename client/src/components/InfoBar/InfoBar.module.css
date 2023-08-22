@@ -1,29 +1,45 @@
 .container {
-  display: flex;
+  position: relative;
   background-color: #3e3e3e;
-  justify-content: space-between; /* infoBar와 radarGraph 사이의 공간을 최대로 확장 */
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-2xs);
+  color: var(--color-white);
+  font-family: var(--font-noto-sans);
+  box-sizing: border-box; /* padding을 포함한 크기로 설정 */
 }
 
 .infoBar {
-  padding: 15px 45px;
   background-color: var(--color-gray-200);
-  width: 800px;
+  width: 750px;
+  padding: 0 100px;
   height: 400px;
   box-sizing: border-box;
-  margin: 0 10px 0 200px; /* 오른쪽 여백을 20px, 왼쪽 여백을 170px로 설정 */
+  margin-right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .radarGraph {
-  padding: 15px 45px;
-  background-color: #232323;
-  width: 800px;
+  background-color: #ffffff;
+  width: 750px;
   height: 400px;
+  flex-direction: column;
+  padding: 5px;
   box-sizing: border-box;
-  margin-right: 200px; /* 오른쪽 여백을 170px로 설정 */
-  display: flex;
+  align-items: flex-start;
+}
+
+.graphVisual {
+  display: flex; /* Flexbox를 활성화합니다. */
+  flex-direction: row; /* 수평 정렬 */
+  background-color: #3e3e3e;
+  margin-left: 195px;
+  margin-right: 210px;
+  height: 400px;
+  overflow: visible; /* 필요하다면 auto로 변경 */
   justify-content: space-between;
-  align-items: center;
 }
