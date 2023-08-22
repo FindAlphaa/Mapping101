@@ -1,9 +1,14 @@
 .loading {
+  width: 600px; /* 그래프의 실제 너비에 따라 조절 */
+  height: 400px; /* 그래프의 실제 높이에 따라 조절 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .noti {
-	font-size: 1.5rem;
-	font-weight: 500;
-	color: #fff;
-	margin-bottom: 40px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  margin-right: 20px;
 }
