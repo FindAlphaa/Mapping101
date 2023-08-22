@@ -5,6 +5,8 @@ const {
 	postGraph,
 	getNetworkGraph,
 	postNetworkGraph,
+	postCompany,
+	getCompanyList,
 } = require("../controllers/apiController");
 
 const apiRouter = express.Router();
@@ -15,5 +17,9 @@ apiRouter
 	.route("/network-graph/:id")
 	.get(getNetworkGraph)
 	.post(postNetworkGraph);
+
+apiRouter.route("/company/register").post(postCompany);
+
+apiRouter.route("/company/:id").get(getCompanyList);
 
 module.exports = apiRouter;
