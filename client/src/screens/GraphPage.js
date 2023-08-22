@@ -7,6 +7,7 @@ import InfoBar from "../components/InfoBar/InfoBar";
 import Graph from "../components/Graph/Graph";
 import KeywordSection from "../components/KeyWordName/KeyWordName";
 import ValueChain from "../components/ValueChain/ValueChain";
+import TreeMap from "../components/TreeMap/TreeMap";
 
 import Loading from "../components/Loading/Loading";
 
@@ -110,6 +111,10 @@ function GraphPage() {
 				/>
 			)}
 			<InfoBar selectedNodeId={selectedNodeId} ref={infoBarRef} />
+
+			{/* 트리맵 컴포넌트 */}
+			<TreeMap selectedNodeId={selectedNodeId} />
+
 			{/* 키워드 이름을 표시하는 컴포넌트 */}
 			<KeywordSection />
 			{/* 선택한 노드의 ID를 ValueChain 컴포넌트에 전달하여 해당 노드와 관련된 키워드 정보를 표시*/}
