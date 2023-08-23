@@ -82,7 +82,24 @@ const LineChart = ({ selectedNodeId }) => {
 				//  로딩 스피너 추가
 				<>
 					<h2 className={styles.lineTitle}>{selectedNodeId}</h2>
-					<Line data={graphData} className={styles.line} />
+					<Line
+						data={graphData}
+						className={styles.line}
+						options={{
+							scales: {
+								x: {
+									ticks: {
+										color: "#fff",
+									},
+								},
+								y: {
+									ticks: {
+										color: "#fff",
+									},
+								},
+							},
+						}}
+					/>
 				</>
 			)}
 		</div>
