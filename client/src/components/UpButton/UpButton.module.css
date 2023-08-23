@@ -1,0 +1,31 @@
+.button {
+	background-color: #000; /* Or whatever color you desire */
+	color: #fff; /* Text/icon color */
+	border: none;
+	border-radius: 50%; /* Rounded button */
+	padding: 12px 15px; /* Button padding */
+	cursor: pointer; /* Cursor style */
+	transition: background-color 0.3s, box-shadow 0.3s; /* Added box-shadow to transition */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Regular shadow effect */
+}
+
+.button:hover {
+	background-color: #333; /* Darker shade for hover effect */
+}
+
+.button:active {
+	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+		inset -2px -2px 5px rgba(0, 0, 0, 0.2); /* Inset shadow to give a pressed effect */
+}
+
+.UpButton {
+	position: fixed; /* Fixed position */
+	bottom: 80px; /* 10px from the bottom */
+	right: 80px; /* 10px from the right */
+	z-index: 1000; /* A high z-index to ensure it stays on top of other elements */
+}
+
+.button svg {
+	width: 20px;
+	height: 20px;
+}
