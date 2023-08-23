@@ -80,6 +80,9 @@ const LineChart = ({ selectedNodeId }) => {
             options={{
               scales: {
                 x: {
+                  grid: {
+                    color: "gray", // x축 격자 선 색상 변경
+                  },
                   ticks: {
                     color: "#fff",
                     font: {
@@ -88,6 +91,9 @@ const LineChart = ({ selectedNodeId }) => {
                   },
                 },
                 y: {
+                  grid: {
+                    color: "gray", // y축 격자 선 색상 변경
+                  },
                   ticks: {
                     color: "#fff",
                   },

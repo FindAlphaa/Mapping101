@@ -8,45 +8,20 @@ import { Chart, RadialLinearScale } from "chart.js";
 Chart.register(RadialLinearScale);
 
 const RadarGraph = ({ selectedNodeId }) => {
-	const [data, setData] = useState(null);
-	const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const response = await axios.get(`/api/radar/${selectedNodeId}`);
-			const data = {
-				labels: [
-					"초과이익지속성",
-					"성장성",
-					"수익성",
-					"잠재성",
-					"매출액변동성",
-					"화제성",
-				],
-				datasets: [
-					{
-						label: response.data.label,
-						data: response.data.data,
-						fill: false,
-						backgroundColor: "rgba(255, 99, 132, 0.2)",
-						borderColor: "rgb(255, 99, 132)",
-						pointBackgroundColor: "rgb(255, 99, 132)",
-						pointBorderColor: "#fff",
-						pointHoverBackgroundColor: "#fff",
-						pointHoverBorderColor: "rgb(255, 99, 132)",
-					},
-				],
-			};
-			setData(data);
-			setLoading(false);
-		};
+  useEffect(() => {
+    if (selectedNodeId) {
+      const filePath = "/data/it_stat.json";
 
-		if (selectedNodeId) fetchData();
-	}, [selectedNodeId]);
+      axios
+        .get(filePath)
+        .then((response) => {
+          const loadedData = response.data;
 
-	if (loading || !data) {
-		return <Loading />;
-	}
+          // 로드된 데이터의 형식 확인
+          console.log("Loaded Data from it_stat.json:", loadedData);
 
           const matchingDataset = loadedData.datasets.find(
             (dataset) => dataset.label === selectedNodeId
@@ -93,6 +68,12 @@ const RadarGraph = ({ selectedNodeId }) => {
           },
           scales: {
             r: {
+              angleLines: {
+                color: "gray", // 각 라벨을 이어주는 선의 색상 설정
+              },
+              grid: {
+                color: "gray", // 이 부분을 추가하여 그리드 라인의 색상을 흰색으로 설정
+              },
               // radial scale
               pointLabels: {
                 color: "white", // 폰트 색상
