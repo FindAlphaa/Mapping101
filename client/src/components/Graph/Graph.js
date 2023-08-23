@@ -122,7 +122,6 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 				style={{ maxWidth: "100%", height: "auto" }}
 			>
 				<g ref={zoomRef}>
-					{" "}
 					{/* This group is for zoomable content */}
 					{/* Your links and nodes here */}
 					<g className="links">

@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false })); // URL-encoded 파싱
 app.use(express.static("public")); // 정적 파일 제공
 
 app.use("/api", apiRouter);
-const PORT = 4000;
+const PORT = 5000;
 
 app.listen(PORT, () => {
-  console.log("listening on port", PORT);
+	console.log("listening on port", PORT);
 });
