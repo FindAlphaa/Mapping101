@@ -58,11 +58,20 @@ const RadarGraph = ({ selectedNodeId }) => {
         data={data}
         className={styles.radarGraph}
         options={{
+          plugins: {
+            legend: {
+              labels: {
+                color: "white", // 폰트 색상
+                fontSize: 16, // 폰트 크기
+              },
+            },
+          },
           scales: {
             r: {
               // radial scale
               pointLabels: {
-                color: "white", // 여기에서 원하는 색상을 지정하세요.
+                color: "white", // 폰트 색상
+                fontSize: 16, // 폰트 크기
               },
             },
           },
