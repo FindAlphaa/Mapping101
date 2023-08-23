@@ -78,7 +78,7 @@ function Graph({ data, onNodeClick, width = 2004, height = 1000 }) {
 					.id((d) => d.id)
 					.distance(200)
 			)
-			.force("charge", d3.forceManyBody().strength(-3000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
+			.force("charge", d3.forceManyBody().strength(-5000)) // 노드 간의 전하를 설정 (양수: 서로 밀어내는 힘, 음수: 서로 당기는 힘)
 			.force("collide", d3.forceCollide().radius(150)) // 노드 간의 충돌 방지
 			.force("center", d3.forceCenter()) // 노드를 화면의 중앙에 위치시킴
 			.force("x", d3.forceX()) // 노드의 x 좌표를 설정
