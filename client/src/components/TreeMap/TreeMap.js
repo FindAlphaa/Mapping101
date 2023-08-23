@@ -72,12 +72,7 @@ function TreeMap({ selectedNodeId }) {
       {loading ? (
         <Loading />
       ) : (
-        <div
-          className="ag-theme-alpine"
-          style={{
-            height: "530px",
-          }}
-        >
+        <div className="ag-theme-alpine">
           <div className={styles.treeMapContainer}>
             <AgChartsReact options={options} />
           </div>
