@@ -5,6 +5,8 @@ import Loading from "../Loading/Loading";
 import styles from "./RadarGraph.module.css";
 import { Chart, RadialLinearScale } from "chart.js";
 
+Chart.register(RadialLinearScale);
+
 const RadarGraph = ({ selectedNodeId }) => {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);

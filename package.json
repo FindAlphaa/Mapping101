@@ -5,6 +5,7 @@
 		"start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
 	},
 	"dependencies": {
+		"ag-charts-react": "^8.1.0",
 		"chart.js": "^4.3.3",
 		"concurrently": "^8.2.0",
 		"cors": "^2.8.5",
