@@ -54,15 +54,7 @@ const LineChart = ({ selectedNodeId }) => {
 	let graphData = {};
 	if (data) {
 		graphData = {
-			labels: [
-				"January",
-				"February",
-				"March",
-				"April",
-				"May",
-				"June",
-				"July",
-			],
+			labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월"],
 			datasets: [
 				{
 					label: "긍정 지수",
@@ -90,11 +82,25 @@ const LineChart = ({ selectedNodeId }) => {
 								x: {
 									ticks: {
 										color: "#fff",
+										font: {
+											size: 20,
+										},
 									},
 								},
 								y: {
 									ticks: {
 										color: "#fff",
+									},
+								},
+							},
+							// 범례의 font 크기를 변경.
+							plugins: {
+								legend: {
+									labels: {
+										font: {
+											size: 16, // Adjust the legend font size as needed
+										},
+										color: "#fff", // Adjust the legend font color
 									},
 								},
 							},
