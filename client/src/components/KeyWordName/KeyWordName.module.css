@@ -2,19 +2,19 @@
 .keywords {
   position: absolute;
   top: 20px;
-  left: 210px;
+  left: 190px;
   font-size: 30px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Poppins";
-  width: 200px;
+  width: 400px;
   color: var(--color-deepskyblue);
 }
 .companyList {
   left: 950px;
-  width: 220px;
+  width: 400px;
   height: 45px;
   font-family: "Poppins";
   font-size: 30px;
