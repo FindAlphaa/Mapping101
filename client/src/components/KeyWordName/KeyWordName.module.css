@@ -30,4 +30,5 @@
   color: var(--color-deepskyblue);
   font-family: var(--font-noto-sans-kr);
   justify-content: space-between;
+  border-top: 2px solid #696969; /* 2px 두께의 회색 테두리 */
 }
