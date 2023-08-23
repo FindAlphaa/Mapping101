@@ -63,7 +63,10 @@ function GraphPage() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await axios.get(`/api/network-graph/${id}`);
+			const PORT = 5000;
+			const response = await axios.get(
+				`http://localhost:${PORT}/api/network-graph/${id}`
+			);
 			setData(response.data);
 			setLoading(false); // 데이터 로딩 완료
 		};
