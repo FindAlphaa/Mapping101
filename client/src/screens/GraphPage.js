@@ -53,9 +53,9 @@ function GraphPage() {
 			itemName: "에너지",
 			itemDescription: "Energy",
 		},
-		utility: {
-			itemName: "유틸리티",
-			itemDescription: "Utility",
+		"health-care": {
+			itemName: "헬스 케어",
+			itemDescription: "Health Care",
 		},
 		// ... 기타 아이템들
 	};
