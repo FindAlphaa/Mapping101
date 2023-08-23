@@ -12,40 +12,36 @@ const RadarGraph = ({ selectedNodeId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (selectedNodeId) {
-      const filePath = "/data/it_stat.json";
+    const fetchData = async () => {
+      const response = await axios.get(`/api/radar/${selectedNodeId}`);
+      const data = {
+        labels: [
+          "초과이익지속성",
+          "성장성",
+          "수익성",
+          "잠재성",
+          "매출액변동성",
+          "화제성",
+        ],
+        datasets: [
+          {
+            label: response.data.label,
+            data: response.data.data,
+            fill: false,
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgb(255, 99, 132)",
+            pointBackgroundColor: "rgb(255, 99, 132)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgb(255, 99, 132)",
+          },
+        ],
+      };
+      setData(data);
+      setLoading(false);
+    };
 
-      axios
-        .get(filePath)
-        .then((response) => {
-          const loadedData = response.data;
-
-          // 로드된 데이터의 형식 확인
-          console.log("Loaded Data from it_stat.json:", loadedData);
-
-          const matchingDataset = loadedData.datasets.find(
-            (dataset) => dataset.label === selectedNodeId
-          );
-
-          if (matchingDataset) {
-            setData({
-              labels: loadedData.labels,
-              datasets: [matchingDataset],
-            });
-            setLoading(false);
-          } else {
-            console.error(
-              "No matching dataset found for the nodeId:",
-              selectedNodeId
-            );
-            setLoading(true);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching the JSON file:", error);
-          setLoading(true);
-        });
-    }
+    if (selectedNodeId) fetchData();
   }, [selectedNodeId]);
 
   if (loading || !data) {
