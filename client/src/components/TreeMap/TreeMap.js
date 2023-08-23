@@ -3,6 +3,7 @@ import { AgChartsReact } from "ag-charts-react";
 import axios from "axios";
 
 import Loading from "../Loading/Loading";
+import { set } from "mongoose";
 
 function TreeMap({ selectedNodeId }) {
 	const [data, setData] = useState();
@@ -10,6 +11,7 @@ function TreeMap({ selectedNodeId }) {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		setLoading(true);
 		const fetchTreeData = async () => {
 			const res = await axios.get(`/api/company/${selectedNodeId}`);
 			const treeData = res.data;
@@ -26,6 +28,7 @@ function TreeMap({ selectedNodeId }) {
 				type: "treemap",
 				labelKey: "name",
 				sizeKey: "size",
+				gradient: false,
 				colorKey: "color",
 				tooltip: {
 					renderer: (params) => {
@@ -44,19 +47,33 @@ function TreeMap({ selectedNodeId }) {
 				// },
 			},
 		],
+		background: {
+			fill: "#232323",
+		},
 		title: {
 			text: selectedNodeId,
+			fontSize: 18,
+			fontWeight: "bold",
+			color: "#fff",
 		},
 		subtitle: {
-			text: "Company List related to the selected node",
+			text: "선택된 키워드에 대한 회사 ESG 점수",
+			fontSize: 14,
+			fontWeight: "normal",
+			color: "#fff",
 		},
 	};
 	return (
 		<>
 			{loading ? (
-				<></>
+				<Loading />
 			) : (
-				<div className="ag-theme-alpine" style={{ height: 400 }}>
+				<div
+					className="ag-theme-alpine"
+					style={{
+						height: "530px",
+					}}
+				>
 					<AgChartsReact options={options} />
 				</div>
 			)}
