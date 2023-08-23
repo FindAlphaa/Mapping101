@@ -54,7 +54,20 @@ const RadarGraph = ({ selectedNodeId }) => {
 
   return (
     <div className={styles.radarWrapper}>
-      <Radar data={data} className={styles.radarGraph} />
+      <Radar
+        data={data}
+        className={styles.radarGraph}
+        options={{
+          scales: {
+            r: {
+              // radial scale
+              pointLabels: {
+                color: "white", // 여기에서 원하는 색상을 지정하세요.
+              },
+            },
+          },
+        }}
+      />
     </div>
   );
 };
