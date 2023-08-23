@@ -3,6 +3,8 @@ const Structure = require("../models/Structure");
 
 const TreeNode = require("../models/TreeNode");
 
+const Radar = require("../models/Radar");
+
 const formattedData = require("./formatted_data.json");
 // const itCompany = require("./tree_node.json");
 
@@ -177,5 +179,41 @@ exports.getCompanyList = async (req, res) => {
 			message: "Error retrieving node",
 			error: error.message,
 		});
+	}
+};
+
+exports.getRadar = async (req, res) => {
+	const { id } = req.params;
+	console.log(id);
+
+	try {
+		const data = await Radar.findOne({ label: id });
+
+		if (data) {
+			console.log(data);
+			return res.status(200).json(data);
+		} else {
+			return res
+				.status(404)
+				.json({ success: false, message: "Graph data not found" });
+		}
+	} catch (error) {
+		console.log(error);
+		return res.status(400).json({ success: false });
+	}
+};
+
+exports.postRadar = async (req, res) => {
+	try {
+		const radarData = require("./radar_data.json");
+		await Radar.insertMany(radarData);
+		return res
+			.status(200)
+			.json({ success: true, message: "Data saved successfully!" });
+	} catch (error) {
+		console.error("Error saving data:", error);
+		return res
+			.status(500)
+			.json({ success: false, message: "Failed to save data" });
 	}
 };

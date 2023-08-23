@@ -8,68 +8,64 @@ import { Chart, RadialLinearScale } from "chart.js";
 Chart.register(RadialLinearScale);
 
 const RadarGraph = ({ selectedNodeId }) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+	const [data, setData] = useState(null);
+	const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (selectedNodeId) {
-      const filePath = "/data/it_stat.json";
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios.get(`/api/radar/${selectedNodeId}`);
+			const data = {
+				labels: [
+					"초과이익지속성",
+					"성장성",
+					"수익성",
+					"잠재성",
+					"매출액변동성",
+					"화제성",
+				],
+				datasets: [
+					{
+						label: response.data.label,
+						data: response.data.data,
+						fill: false,
+						backgroundColor: "rgba(255, 99, 132, 0.2)",
+						borderColor: "rgb(255, 99, 132)",
+						pointBackgroundColor: "rgb(255, 99, 132)",
+						pointBorderColor: "#fff",
+						pointHoverBackgroundColor: "#fff",
+						pointHoverBorderColor: "rgb(255, 99, 132)",
+					},
+				],
+			};
+			setData(data);
+			setLoading(false);
+		};
 
-      axios
-        .get(filePath)
-        .then((response) => {
-          const loadedData = response.data;
+		if (selectedNodeId) fetchData();
+	}, [selectedNodeId]);
 
-          // 로드된 데이터의 형식 확인
-          console.log("Loaded Data from it_stat.json:", loadedData);
+	if (loading || !data) {
+		return <Loading />;
+	}
 
-          const matchingDataset = loadedData.datasets.find(
-            (dataset) => dataset.label === selectedNodeId
-          );
-
-          if (matchingDataset) {
-            setData({
-              labels: loadedData.labels,
-              datasets: [matchingDataset],
-            });
-            setLoading(false);
-          } else {
-            console.error(
-              "No matching dataset found for the nodeId:",
-              selectedNodeId
-            );
-            setLoading(true);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching the JSON file:", error);
-          setLoading(true);
-        });
-    }
-  }, [selectedNodeId]);
-
-  if (loading || !data) {
-    return <Loading />;
-  }
-
-  return (
-    <div className={styles.radarWrapper}>
-      <Radar
-        data={data}
-        className={styles.radarGraph}
-        options={{
-          scales: {
-            r: {
-              // radial scale
-              pointLabels: {
-                color: "white", // 여기에서 원하는 색상을 지정하세요.
-              },
-            },
-          },
-        }}
-      />
-    </div>
-  );
+	return (
+		<div className={styles.radarWrapper}>
+			<Radar
+				data={data}
+				className={styles.radarGraph}
+				options={{
+					scales: {
+						r: {
+							// radial scale
+							pointLabels: {
+								color: "white", // 여기에서 원하는 색상을 지정하세요.
+							},
+						},
+					},
+				}}
+			/>
+		</div>
+	);
 };
 
 export default RadarGraph;

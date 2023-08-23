@@ -7,6 +7,8 @@ const {
 	postNetworkGraph,
 	saveTreeData,
 	getCompanyList,
+	postRadar,
+	getRadar,
 } = require("../controllers/apiController");
 
 const apiRouter = express.Router();
@@ -21,5 +23,9 @@ apiRouter
 apiRouter.route("/company/register").post(saveTreeData);
 
 apiRouter.route("/company/:id").get(getCompanyList);
+
+apiRouter.route("/radar/register").post(postRadar);
+
+apiRouter.route("/radar/:id").get(getRadar);
 
 module.exports = apiRouter;
