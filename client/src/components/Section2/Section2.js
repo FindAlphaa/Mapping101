@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Section2 = () => {
 	return (
 		<div className={styles.section2}>
-			<div className={styles.communicationSevice}>
+			<div className={`${styles.communicationSevice} ${styles.enlargeOnHover}`}>
 				<Link
 					to="/graph/communication-service"
 					className={styles.navLink}
@@ -27,7 +27,7 @@ const Section2 = () => {
 				</Link>
 			</div>
 
-			<div className={styles.it}>
+			<div className={`${styles.it} ${styles.enlargeOnHover}`}>
 				<Link to="/graph/it" className={styles.navLink}>
 					<div className={styles.back}>
 						<div className={styles.back3} />
@@ -46,7 +46,7 @@ const Section2 = () => {
 				</Link>
 			</div>
 
-			<div className={styles.material}>
+			<div className={`${styles.material} ${styles.enlargeOnHover}`}>
 				<Link to="/graph/material" className={styles.navLink}>
 					<div className={styles.back}>
 						<div className={styles.back5} />

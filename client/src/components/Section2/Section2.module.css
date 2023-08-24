@@ -142,3 +142,6 @@
   color: var(--color-white);
   font-family: var(--desktop-main-regular);
 }
+.enlargeOnHover:hover {
+  transform: scale(1.1); 
+}
