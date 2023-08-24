@@ -2,6 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
 body {
 	margin: 0;
 	line-height: normal;
@@ -50,6 +57,7 @@ html::-webkit-scrollbar-thumb:hover {
 	--color-lightslategray: #9a95a3;
 	--general-blue: #381ddb;
 	--color-background: #232323;
+	--color-deepskyblue-200: #1ab6e8;
 
 	/* Paddings */
 	--padding-5xs: 8px;
@@ -57,4 +65,6 @@ html::-webkit-scrollbar-thumb:hover {
 
 	/* Effects */
 	--small: 0px 10px 40px rgba(34, 34, 34, 0.15);
+
+	--font-noto-sans-kr: "Noto Sans KR";
 }
