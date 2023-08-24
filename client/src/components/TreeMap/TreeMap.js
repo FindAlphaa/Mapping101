@@ -37,10 +37,11 @@ function TreeMap({ selectedNodeId }) {
 				tooltip: {
 					renderer: (params) => {
 						return {
-							content: `ESG: ${params.datum[params.colorKey]}`,
+							content: `ESG: ${params.datum.description}`,
 						};
 					},
 				},
+
 				formatter: (params) => ({
 					stroke: params.depth < 2 ? "transparent" : "black",
 				}),
@@ -51,9 +52,11 @@ function TreeMap({ selectedNodeId }) {
 				// },
 			},
 		],
+
 		background: {
 			fill: "#2c2c2c",
 		},
+
 		title: {
 			text: selectedNodeId,
 			fontSize: 18,

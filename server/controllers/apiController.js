@@ -5,7 +5,7 @@ const TreeNode = require("../models/TreeNode");
 
 const Radar = require("../models/Radar");
 
-const formattedData = require("./formatted_data.json");
+const formattedData = require("./formatted_data2.json");
 // const itCompany = require("./tree_node.json");
 
 exports.getGraph = async (req, res) => {
