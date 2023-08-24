@@ -12,7 +12,7 @@ const TreeNodeSchema = new Schema({
 		type: Number,
 	},
 	color: {
-		type: Number,
+		type: String,
 	},
 	children: [
 		{
