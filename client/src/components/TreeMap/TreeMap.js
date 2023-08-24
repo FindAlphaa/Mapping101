@@ -5,6 +5,7 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import styles from "./TreeMap.module.css";
 import { set } from "mongoose";
+import ESGGrade from "../ESGGrade/ESGGrade";
 
 function TreeMap({ selectedNodeId }) {
 	const [data, setData] = useState();
@@ -76,6 +77,7 @@ function TreeMap({ selectedNodeId }) {
 				<Loading />
 			) : (
 				<div className="ag-theme-alpine">
+					<ESGGrade />
 					<div className={styles.treeMapContainer}>
 						<AgChartsReact options={options} />
 					</div>
