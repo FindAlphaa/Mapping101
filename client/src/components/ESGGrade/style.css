@@ -1,181 +1,181 @@
 .frame {
-	height: 62px;
-	position: absolute;
-	width: 460px;
-	z-index: 1000;
-	left: 15px;
+  height: 62px;
+  position: absolute;
+  width: 480px;
+  z-index: 1000;
+  left: 15px;
 }
 
 .frame .overlap-group {
-	background-color: #2c2c2c;
-	height: 47px;
-	left: 0;
-	position: absolute;
-	top: 15px;
-	width: 460px;
+  background-color: #2c2c2c;
+  height: 47px;
+  left: 0;
+  position: absolute;
+  top: 15px;
+  width: 460px;
 }
 
 .frame .a-grade {
-	background-color: #171414;
-	height: 40px;
-	left: 395px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 395px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .group {
-	height: 31px;
-	left: 5px;
-	position: relative;
-	top: 3px;
-	width: 51px;
+  height: 31px;
+  left: 5px;
+  position: relative;
+  top: 3px;
+  width: 51px;
 }
 
 .frame .rectangle {
-	background-color: #3737ff;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #3737ff;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .text-wrapper {
-	color: #1ab6e7;
-	font-family: "Noto Sans KR", Helvetica;
-	font-size: 12px;
-	font-weight: 500;
-	height: 10px;
-	left: 1px;
-	letter-spacing: 0;
-	line-height: normal;
-	position: absolute;
-	text-align: center;
-	top: 21px;
-	white-space: nowrap;
-	width: 48px;
+  color: #1ab6e7;
+  font-family: "Noto Sans KR", Helvetica;
+  font-size: 12px;
+  font-weight: 500;
+  height: 10px;
+  left: 1px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 21px;
+  white-space: nowrap;
+  width: 48px;
 }
 
 .frame .group-wrapper {
-	background-color: #171414;
-	height: 40px;
-	left: 330px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 330px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .div {
-	background-color: #908cff;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #908cff;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .b-grade {
-	background-color: #171414;
-	height: 40px;
-	left: 266px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 266px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .img {
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .div-wrapper {
-	background-color: #171414;
-	height: 40px;
-	left: 201px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 201px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .rectangle-2 {
-	background-color: #ffdec1;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #ffdec1;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .c-grade {
-	background-color: #171414;
-	height: 40px;
-	left: 136px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 136px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .rectangle-3 {
-	background-color: #ff8e8e;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #ff8e8e;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .d-grade {
-	background-color: #171414;
-	height: 40px;
-	left: 71px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 71px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .rectangle-4 {
-	background-color: #fc0000;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #fc0000;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .none {
-	background-color: #171414;
-	height: 40px;
-	left: 6px;
-	position: absolute;
-	top: 4px;
-	width: 58px;
+  background-color: #171414;
+  height: 45px;
+  left: 6px;
+  position: absolute;
+  top: 4px;
+  width: 58px;
 }
 
 .frame .rectangle-5 {
-	background-color: #4b4b4b;
-	height: 15px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 49px;
+  background-color: #4b4b4b;
+  height: 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 49px;
 }
 
 .frame .text-wrapper-2 {
-	color: #1eb4e4;
-	font-family: "Noto Sans KR", Helvetica;
-	font-size: 17px;
-	font-weight: 500;
-	height: 13px;
-	left: 3px;
-	letter-spacing: 0;
-	line-height: normal;
-	position: absolute;
-	text-align: center;
-	top: -5px;
-	white-space: nowrap;
-	width: 103px;
+  color: #1eb4e4;
+  font-family: "Noto Sans KR", Helvetica;
+  font-size: 17px;
+  font-weight: 500;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: -10px;
+  white-space: nowrap;
+  width: 100px;
 }
